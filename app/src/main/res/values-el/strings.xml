@@ -11,6 +11,8 @@
     <string name="language">Γλώσσα</string>
     <string name="log_in_success">Επιτυχής σύνδεση!</string>
     <string name="log_in_error">Σφάλμα σύνδεσης </string>
+    <string name="email_empty">Κένη διεύθυνση email!</string>
+    <string name="password_empty">Κενό πεδίο κωδικού!</string>
 
     <!-- Register Activity. -->
     <string name="already_a_user_login_here">Ήδη χρήστης; Σύνδεση τώρα!</string>
@@ -23,6 +25,9 @@
     <string name="success_register">Επιτυχής εγγραφή!</string>
     <string name="error_register">Σφάλμα εγγραφής </string>
     <string name="passwords_not_match">Οι κωδικοί δεν ταιριάζουν!</string>
+    <string name="email_not_valid">Μη έγκυρο email!</string>
+    <string name="password_length_error">Ο κωδικός πρέπει να έχει τουλάχιστον 6 χαρακτήρες!</string>
+    <string name="password_confirm">Επιβεβαιώστε τον κωδικό!</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Ανανγώριση εικόνας</string>

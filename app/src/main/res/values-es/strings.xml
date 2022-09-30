@@ -11,6 +11,8 @@
     <string name="language">Idioma</string>
     <string name="log_in_success">¡Iniciado sesión correctamente!</string>
     <string name="log_in_error">Error de inicio de sesión </string>
+    <string name="email_empty">¡El correo electrónico no puede estar vacío!</string>
+    <string name="password_empty">¡La contraseña no puede estar vacía!</string>
 
     <!-- Register Activity. -->
     <string name="already_a_user_login_here">¿Ya eres usuario? ¡Inicia sesión ahora!</string>
@@ -23,6 +25,9 @@
     <string name="success_register">¡Registro exitoso!</string>
     <string name="error_register">Εrror de registro </string>
     <string name="passwords_not_match">¡Las contraseñas no coinciden!</string>
+    <string name="email_not_valid">¡El correo no es válido!</string>
+    <string name="password_length_error">¡La contraseña debe tener al menos 6 caracteres!</string>
+    <string name="password_confirm">¡Confirme la contraseña por favor!</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Etiquetado de imágenes</string>

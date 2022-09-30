@@ -73,23 +73,23 @@ public class RegisterActivity extends AppCompatActivity {
         String strPasswordConfirm = passwordConfirm.getText().toString();
 
         if (strEmail.isEmpty()) {
-            email.setError("Email can't be empty!");
+            email.setError(getResources().getString(R.string.email_empty));
             email.requestFocus();
             return;
         } else if (!isEmailValid(strEmail)) {
-            email.setError("Email is not valid!");
+            email.setError(getResources().getString(R.string.email_not_valid));
             email.requestFocus();
             return;
         } else if (strPassword.isEmpty()) {
-            password.setError("Password can't be empty!");
+            password.setError(getResources().getString(R.string.password_empty));
             password.requestFocus();
             return;
         } else if (strPassword.length() < 6) {
-            password.setError("Password must be at least 6 characters!");
+            password.setError(getResources().getString(R.string.password_length_error));
             password.requestFocus();
             return;
         } else if (strPasswordConfirm.isEmpty()) {
-            passwordConfirm.setError("Confirm password please!");
+            passwordConfirm.setError(getResources().getString(R.string.password_confirm));
             passwordConfirm.requestFocus();
             return;
         } else if (!strPassword.equals(strPasswordConfirm)) {

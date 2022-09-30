@@ -67,11 +67,11 @@ public class LoginActivity extends AppCompatActivity {
         String strPassword = password.getText().toString();
 
         if (strEmail.isEmpty()) {
-            email.setError("Email can't be empty!");
+            email.setError(getResources().getString(R.string.email_empty));
             email.requestFocus();
             return;
         } else if (strPassword.isEmpty()){
-            password.setError("Password can't be empty!");
+            password.setError(getResources().getString(R.string.password_empty));
             password.requestFocus();
             return;
         } else {

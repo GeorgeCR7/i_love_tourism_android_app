@@ -11,6 +11,8 @@
     <string name="language">Sprache</string>
     <string name="log_in_success">Erfolgreich eingeloggt!</string>
     <string name="log_in_error">Login Fehler </string>
+    <string name="email_empty">Email darf nicht leer sein!</string>
+    <string name="password_empty">Passwort kann nicht leer sein!</string>
 
     <!-- Register Activity. -->
     <string name="already_a_user_login_here">Bereits Benutzer? Jetzt einloggen!</string>
@@ -23,6 +25,9 @@
     <string name="success_register">Registrierung erfolgreich!</string>
     <string name="error_register">Fehler registrieren </string>
     <string name="passwords_not_match">Passwörter stimmen nicht überein!</string>
+    <string name="email_not_valid">Email ist ungültig!</string>
+    <string name="password_length_error">Das Passwort muss mindestens aus 6 Zeichen bestehen!</string>
+    <string name="password_confirm">Passwort bestätigen bitte!</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Bildbeschriftung</string>

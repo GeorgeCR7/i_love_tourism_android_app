@@ -41,5 +41,10 @@
     <string name="your_image">Your Image</string>
     <string name="load_from_camera">From camera</string>
     <string name="load_from_gallery">From storage gallery</string>
+    <string name="email_empty">Email cannot be empty!</string>
+    <string name="password_empty">Password cannot be empty!</string>
+    <string name="email_not_valid">Email is not valid!</string>
+    <string name="password_length_error">Password must be at least 6 characters!</string>
+    <string name="password_confirm">Confirm password please!</string>
 
 </resources>
