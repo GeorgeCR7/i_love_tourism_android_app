@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D4E7F7"
+    tools:context=".ImgLabelingActivity">
+
+    <Button
+        android:id="@+id/btnBackImgLbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#D33A3A"
+        android:gravity="center"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtImgForRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/image_to_recognize"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLoadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:backgroundTint="#235B91"
+        android:gravity="center"
+        android:text="@string/load_image"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtImgForRec"
+        app:layout_constraintStart_toStartOf="@+id/txtImgForRec"
+        app:layout_constraintTop_toBottomOf="@+id/txtImgForRec" />
+
+    <TextView
+        android:id="@+id/txtYourImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/your_image"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnLoadImage"
+        app:layout_constraintStart_toStartOf="@+id/btnLoadImage"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoadImage" />
+
+    <ImageView
+        android:id="@+id/myImage"
+        android:layout_width="253dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtYourImage"
+        app:layout_constraintStart_toStartOf="@+id/txtYourImage"
+        app:layout_constraintTop_toBottomOf="@+id/txtYourImage"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/txtImgLblResult"
+        android:layout_width="401dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/myImage"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/myImage"
+        app:layout_constraintTop_toBottomOf="@+id/myImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

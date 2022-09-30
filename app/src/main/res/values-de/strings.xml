@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">login_register_app</string>
+
+    <!-- Login Activity. -->
+    <string name="login">Verbindung</string>
+    <string name="new_user_register_here">Neuer Benutzer? Jetzt registrieren!</string>
+    <string name="enter_password">Code...</string>
+    <string name="btnLogin">Verbindung</string>
+    <string name="enter_email">Εmail...</string>
+    <string name="language">Sprache</string>
+    <string name="log_in_success">Erfolgreich eingeloggt!</string>
+    <string name="log_in_error">Login Fehler </string>
+
+    <!-- Register Activity. -->
+    <string name="already_a_user_login_here">Bereits Benutzer? Jetzt einloggen!</string>
+    <string name="register">Anmelden</string>
+    <string name="enter_email_reg">Email...</string>
+    <string name="confirm_password">Passwort bestätigen...</string>
+    <string name="register_title">Anmelden</string>
+    <string name="enter_password_reg">Code...</string>
+    <string name="language_reg">Sprache</string>
+    <string name="success_register">Registrierung erfolgreich!</string>
+    <string name="error_register">Fehler registrieren </string>
+    <string name="passwords_not_match">Passwörter stimmen nicht überein!</string>
+
+    <!-- Main Activity. -->
+    <string name="image_labeling">Bildbeschriftung</string>
+    <string name="text_recognition">Texterkennung</string>
+    <string name="sights">Sehenswürdigkeiten</string>
+    <string name="logout">Ausgang</string>
+    <string name="log_out_main">Erfolgreich abgemeldet!</string>
+    <string name="about">Um</string>
+
+    <!-- Image Labeling Activity. -->
+    <string name="image_to_recognize">Bild zu erkennen</string>
+    <string name="load_image">Bild laden</string>
+    <string name="your_image">Dein Bild</string>
+    <string name="load_from_camera">From camera</string>
+    <string name="load_from_gallery">From storage gallery</string>
+
+    <!-- Sights Activity. -->
+    <string name="show_all_sights">Alle Sehenswürdigkeiten anzeigen</string>
+    <string name="open_map">Karte öffnen</string>
+    <string name="find_your_nearest_sight">Finden Sie Ihre nächste Sehenswürdigkeit</string>
+    <string name="find">Finden</string>
+    <string name="nearest_sight">Nächste Sehenswürdigkeit</string>
+    <string name="back">Der Rücken</string>
+
+    <!-- Language Activity. -->
+    <string name="select_your_language">Wähle deine Sprache!</string>
+    <string name="english">Englisch</string>
+    <string name="greek">Griechisch</string>
+    <string name="german">Deutsch</string>
+    <string name="spanish">Spanisch</string>
+
+</resources>

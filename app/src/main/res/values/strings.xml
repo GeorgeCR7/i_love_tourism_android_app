@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">login_register_app</string>
+
+    <string name="login">Login</string>
+    <string name="new_user_register_here">New user? Register here!</string>
+    <string name="select_your_language">Select your language!</string>
+    <string name="english">English</string>
+    <string name="greek">Greek</string>
+    <string name="german">German</string>
+    <string name="spanish">Spanish</string>
+    <string name="enter_password">Enter password...</string>
+    <string name="btnLogin">Login</string>
+    <string name="enter_email">Enter email...</string>
+    <string name="language">Language</string>
+    <string name="already_a_user_login_here">Already a user? Login here!</string>
+    <string name="register">Register</string>
+    <string name="enter_email_reg">Enter email...</string>
+    <string name="confirm_password">Confirm password...</string>
+    <string name="register_title">Register</string>
+    <string name="enter_password_reg">Enter password...</string>
+    <string name="language_reg">Language</string>
+    <string name="logout">Logout</string>
+    <string name="success_register">User created successfully!</string>
+    <string name="error_register">Register error </string>
+    <string name="passwords_not_match">Passwords not match!</string>
+    <string name="log_in_success">Logged in successfully!</string>
+    <string name="log_in_error">Login error </string>
+    <string name="log_out_main">Logged out successfully!</string>
+    <string name="about">About</string>
+    <string name="image_labeling">Image Labeling</string>
+    <string name="text_recognition">Text Recognition</string>
+    <string name="sights">Sights</string>
+    <string name="back">Back</string>
+    <string name="show_all_sights">Show all sights</string>
+    <string name="open_map">Open map</string>
+    <string name="find_your_nearest_sight">Find your nearest sight</string>
+    <string name="find">Find</string>
+    <string name="nearest_sight">Nearest sight</string>
+    <string name="image_to_recognize">Image to recognize</string>
+    <string name="load_image">Load Image</string>
+    <string name="your_image">Your Image</string>
+    <string name="load_from_camera">From camera</string>
+    <string name="load_from_gallery">From storage gallery</string>
+
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D4E7F7"
+    tools:context=".SightsActivity">
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#D33A3A"
+        android:gravity="center"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtShowAllSights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/show_all_sights"
+        android:textColor="#090909"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#235B91"
+        android:gravity="center"
+        android:text="@string/open_map"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtShowAllSights"
+        app:layout_constraintStart_toStartOf="@+id/txtShowAllSights"
+        app:layout_constraintTop_toBottomOf="@+id/txtShowAllSights" />
+
+    <TextView
+        android:id="@+id/txtFindNearestSight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/find_your_nearest_sight"
+        android:textColor="#090909"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnMap"
+        app:layout_constraintStart_toStartOf="@+id/btnMap"
+        app:layout_constraintTop_toBottomOf="@+id/btnMap" />
+
+    <Button
+        android:id="@+id/btnFind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#235B91"
+        android:gravity="center"
+        android:text="@string/find"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtFindNearestSight"
+        app:layout_constraintStart_toStartOf="@+id/txtFindNearestSight"
+        app:layout_constraintTop_toBottomOf="@+id/txtFindNearestSight" />
+
+    <TextView
+        android:id="@+id/txtNearestSightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/nearest_sight"
+        android:textColor="#090909"
+        android:textSize="29sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtNearestSightResult"
+        app:layout_constraintEnd_toEndOf="@+id/btnFind"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/btnFind" />
+
+    <TextView
+        android:id="@+id/txtNearestSightResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#0E5E12"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="@+id/txtNearestSightLabel"
+        app:layout_constraintStart_toStartOf="@+id/txtNearestSightLabel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

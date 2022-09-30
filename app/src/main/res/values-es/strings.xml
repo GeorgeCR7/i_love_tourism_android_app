@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">login_register_app</string>
+
+    <!-- Login Activity. -->
+    <string name="login">Conexión</string>
+    <string name="new_user_register_here">¿Nuevo Usuario? ¡Regístrate ahora!</string>
+    <string name="enter_password">Código...</string>
+    <string name="btnLogin">Conexión</string>
+    <string name="enter_email">Εmail...</string>
+    <string name="language">Idioma</string>
+    <string name="log_in_success">¡Iniciado sesión correctamente!</string>
+    <string name="log_in_error">Error de inicio de sesión </string>
+
+    <!-- Register Activity. -->
+    <string name="already_a_user_login_here">¿Ya eres usuario? ¡Inicia sesión ahora!</string>
+    <string name="register">Inscribirse</string>
+    <string name="enter_email_reg">Email...</string>
+    <string name="confirm_password">Confirmar contraseña...</string>
+    <string name="register_title">Inscribirse</string>
+    <string name="enter_password_reg">Código...</string>
+    <string name="language_reg">Idioma</string>
+    <string name="success_register">¡Registro exitoso!</string>
+    <string name="error_register">Εrror de registro </string>
+    <string name="passwords_not_match">¡Las contraseñas no coinciden!</string>
+
+    <!-- Main Activity. -->
+    <string name="image_labeling">Etiquetado de imágenes</string>
+    <string name="text_recognition">Reconocimiento de texto</string>
+    <string name="sights">Monumentos</string>
+    <string name="logout">Salida</string>
+    <string name="log_out_main">¡Cierre de sesión con éxito!</string>
+    <string name="about">Sobre</string>
+
+    <!-- Image Labeling Activity. -->
+    <string name="image_to_recognize">Imagen para reconocer</string>
+    <string name="load_image">Cargar imagen</string>
+    <string name="your_image">Tu imagen</string>
+    <string name="load_from_camera">From camera</string>
+    <string name="load_from_gallery">From storage gallery</string>
+
+    <!-- Sights Activity.-->
+    <string name="show_all_sights">Mostrar todas las vistas</string>
+    <string name="open_map">Abrir mapa</string>
+    <string name="find_your_nearest_sight">Encuentra tu vista más cercana</string>
+    <string name="find">Encontrar</string>
+    <string name="nearest_sight">Vista más cercana</string>
+    <string name="back">Atrás</string>
+
+    <!-- Language Activity. -->
+    <string name="select_your_language">¡Elige tu idioma!</string>
+    <string name="english">Ιnglés</string>
+    <string name="greek">Griego</string>
+    <string name="german">Alemán</string>
+    <string name="spanish">Εspañol</string>
+
+</resources>

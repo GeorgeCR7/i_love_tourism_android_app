@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "467813491147",
+    "project_id": "login-register-app-cdeb5",
+    "storage_bucket": "login-register-app-cdeb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467813491147:android:5a2240bd61ebb31f06164e",
+        "android_client_info": {
+          "package_name": "com.example.login_register_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467813491147-37bjmqkq81j9caf76ac7dkfns00pa9ph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPkfNEx4kpgbqGrGYAny4DNFIMZ5vFzUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467813491147-37bjmqkq81j9caf76ac7dkfns00pa9ph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

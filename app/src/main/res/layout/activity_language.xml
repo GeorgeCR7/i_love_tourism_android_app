@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D4E7F7"
+    tools:context=".LanguageActivity">
+    
+    <RadioGroup
+        android:id="@+id/langGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <RadioButton
+            android:id="@+id/langEng"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/english"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/langGr"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/greek" />
+
+        <RadioButton
+            android:id="@+id/langGerm"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/german" />
+
+        <RadioButton
+            android:id="@+id/langSpa"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/spanish" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/langText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/langGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="@string/select_your_language"
+        android:textSize="25sp"
+        android:textStyle="bold"
+
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btnOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/langText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:backgroundTint="#235B91"
+        android:text="OK" />
+
+</RelativeLayout>
