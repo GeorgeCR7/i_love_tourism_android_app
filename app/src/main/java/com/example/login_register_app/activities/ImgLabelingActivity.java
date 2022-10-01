@@ -1,4 +1,4 @@
-package com.example.login_register_app;
+package com.example.login_register_app.activities;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -16,12 +16,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_register_app.R;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.label.ImageLabel;
 import com.google.mlkit.vision.label.ImageLabeler;
@@ -81,7 +81,7 @@ public class ImgLabelingActivity extends AppCompatActivity {
                 // Create an alert dialog when button clicked.
                 // Give the user the options, to take a picture from camera or upload from device's storage fro labeling.
                 AlertDialog.Builder builder = new AlertDialog.Builder(ImgLabelingActivity.this);
-                builder.setTitle("Pick an option!");
+                builder.setTitle(getResources().getString(R.string.load_image));
                 builder.setItems(options, (dialog, which) -> {
                     if (which == 0) {
                         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -99,7 +99,7 @@ public class ImgLabelingActivity extends AppCompatActivity {
         btnBackImgLbl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ImgLabelingActivity.this, ImgLabelingActivity.class);
+                Intent intent = new Intent(ImgLabelingActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,4 +1,4 @@
-package com.example.login_register_app;
+package com.example.login_register_app.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.login_register_app.R;
 
 public class SightsActivity extends AppCompatActivity {
 

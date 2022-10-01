@@ -1,4 +1,4 @@
-package com.example.login_register_app;
+package com.example.login_register_app.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.login_register_app.AboutWindow;
+import com.example.login_register_app.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         cal.setTime(new Date());
 
         if ((cal.get(Calendar.MONTH)+1) < 10) {
-            txtDate.setText(cal.get(Calendar.DAY_OF_MONTH) + ".0"
+            txtDate.setText("0" +cal.get(Calendar.DAY_OF_MONTH) + ".0"
                     + (cal.get(Calendar.MONTH)+1) + "." +
                     cal.get(Calendar.YEAR));
         } else {

@@ -1,4 +1,4 @@
-package com.example.login_register_app;
+package com.example.login_register_app.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,8 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.login_register_app.R;
 
 import java.util.Locale;
 

@@ -41,8 +41,8 @@
     <string name="image_to_recognize">Imagen para reconocer</string>
     <string name="load_image">Cargar imagen</string>
     <string name="your_image">Tu imagen</string>
-    <string name="load_from_camera">From camera</string>
-    <string name="load_from_gallery">From storage gallery</string>
+    <string name="load_from_camera">De la cámara</string>
+    <string name="load_from_gallery">De la galería de almacenamiento</string>
 
     <!-- Sights Activity.-->
     <string name="show_all_sights">Mostrar todas las vistas</string>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D4E7F7"
-    tools:context=".ImgLabelingActivity">
+    tools:context=".activities.ImgLabelingActivity">
 
     <Button
         android:id="@+id/btnBackImgLbl"
