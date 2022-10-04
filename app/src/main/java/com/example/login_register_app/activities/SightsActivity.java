@@ -30,6 +30,15 @@ public class SightsActivity extends AppCompatActivity {
 
         txtNearestSightLabel.setVisibility(View.INVISIBLE);
 
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SightsActivity.this, MapsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +51,7 @@ public class SightsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(SightsActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

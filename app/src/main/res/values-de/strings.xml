@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">login_register_app</string>
+    <string name="mapApiKey">AIzaSyASdI1qm9YE0y_aldE2orX06Qy0XmL7T00</string>
 
     <!-- Login Activity. -->
     <string name="login">Verbindung</string>
