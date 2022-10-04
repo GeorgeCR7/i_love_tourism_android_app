@@ -46,8 +46,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setZoomGesturesEnabled(true);
 
-        LatLng sydney = new LatLng(-34, 151);
+        //Take the list of vaccine centers from another activity and store data in this global variable.
+        sights = getIntent().getParcelableArrayListExtra("SIGHTS_LIST");
+
+
+        //Loop the list of centers and make a pin in Map for each one.
+        for (Sight s : sights){
+            LatLng location = new LatLng(s.getLatitude(), s.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(location).title(s.getName()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+            mMap.animateCamera(CameraUpdateFactory.zoomTo(6));
+        }
+
+        /*LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
     }
 }
