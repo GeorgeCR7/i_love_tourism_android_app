@@ -35,7 +35,7 @@ public class ImgLabelingActivity extends AppCompatActivity {
     private static final int READ_STORAGE_PERMISSION_CODE = 144;
     private static final int WRITE_STORAGE_PERMISSION_CODE = 144;
 
-    Button btnLoadImage, btnBackImgLbl;
+    Button btnLoadImage, btnTranslateTxt, btnBackImgLbl;
 
     TextView txtYourImage, txtImgLblResult;
 
@@ -52,6 +52,8 @@ public class ImgLabelingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_img_labeling);
 
         btnLoadImage = findViewById(R.id.btnLoadImage);
+        btnTranslateTxt = findViewById(R.id.btnTranslateTxt);
+        btnTranslateTxt.setVisibility(View.INVISIBLE);
         btnBackImgLbl = findViewById(R.id.btnBackImgLbl);
 
         txtImgLblResult = findViewById(R.id.txtImgLblResult);
@@ -96,11 +98,22 @@ public class ImgLabelingActivity extends AppCompatActivity {
             }
         });
 
+        btnTranslateTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ImgLabelingActivity.this, TranslateActivity.class);
+                intent.putExtra("TXT_TO_TRANSLATE", txtImgLblResult.getText().toString());
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnBackImgLbl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ImgLabelingActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -149,6 +162,9 @@ public class ImgLabelingActivity extends AppCompatActivity {
                     }
                     // Show the result in the screen.
                     txtImgLblResult.setText(result);
+                    if(!txtImgLblResult.getText().toString().equals("")) {
+                        btnTranslateTxt.setVisibility(View.VISIBLE);
+                    }
                 })
                 .addOnFailureListener(e -> Log.d(TAG, "processImage - onFailure: " + e.getMessage()));
     }

@@ -44,6 +44,7 @@
     <string name="your_image">Dein Bild</string>
     <string name="load_from_camera">From camera</string>
     <string name="load_from_gallery">From storage gallery</string>
+    <string name="translate">Übersetzen</string>
 
     <!-- Sights Activity. -->
     <string name="show_all_sights">Alle Sehenswürdigkeiten anzeigen</string>
@@ -59,5 +60,13 @@
     <string name="greek">Griechisch</string>
     <string name="german">Deutsch</string>
     <string name="spanish">Spanisch</string>
+
+    <!-- Translate Activity -->
+    <string name="translate_to">Übersetzen ins</string>
+    <string-array name="spn_langs">
+        <item>Griechisch</item>
+        <item>Deutsch</item>
+        <item>Spanisch</item>
+    </string-array>
 
 </resources>

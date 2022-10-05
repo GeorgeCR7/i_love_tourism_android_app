@@ -47,6 +47,13 @@
     <string name="email_not_valid">Email is not valid!</string>
     <string name="password_length_error">Password must be at least 6 characters!</string>
     <string name="password_confirm">Confirm password please!</string>
-    <string name="title_activity_maps">MapsActivity</string>
+    <string name="translate">Translate</string>
+    <string name="translate_to">Translate to</string>
+    
+    <string-array name="spn_langs">
+        <item>Greek</item>
+        <item>German</item>
+        <item>Spanish</item>
+    </string-array>
 
 </resources>
