@@ -165,8 +165,7 @@ public class ImgLabelingActivity extends AppCompatActivity {
                     if(!txtImgLblResult.getText().toString().equals("")) {
                         btnTranslateTxt.setVisibility(View.VISIBLE);
                     }
-                })
-                .addOnFailureListener(e -> Log.d(TAG, "processImage - onFailure: " + e.getMessage()));
+                }).addOnFailureListener(e -> Log.d(TAG, "processImage - onFailure: " + e.getMessage()));
     }
 
     @Override

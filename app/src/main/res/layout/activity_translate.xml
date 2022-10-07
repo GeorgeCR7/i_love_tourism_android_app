@@ -41,6 +41,8 @@
         android:layout_width="285dp"
         android:layout_height="45dp"
         android:layout_marginTop="25dp"
+        android:background="#1C1B1B"
+        android:backgroundTint="#6EBEEA"
         app:layout_constraintEnd_toEndOf="@+id/txtTranslateTo"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/txtTranslateTo"

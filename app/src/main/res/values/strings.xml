@@ -51,6 +51,7 @@
     <string name="translate_to">Translate to</string>
     
     <string-array name="spn_langs">
+        <item></item>
         <item>Greek</item>
         <item>German</item>
         <item>Spanish</item>

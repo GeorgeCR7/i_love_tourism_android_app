@@ -52,14 +52,40 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         String selectedLang = adapterView.getItemAtPosition(position).toString();
         Bundle extras = getIntent().getExtras();
-        if (extras!= null) {
-            txtTranslateResult.setVisibility(View.VISIBLE);
-            txtTranslateResult.setText(extras.getString("TXT_TO_TRANSLATE"));
+        String[] allLanguages = getResources().getStringArray(R.array.spn_langs);
+        if (!selectedLang.equals("")){
+            if (extras!= null){
+                if (selectedLang.equals(allLanguages[1])){
+                    // translate text to greek...
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setText(translateText("el", extras.getString("TXT_TO_TRANSLATE")));
+                } else if (selectedLang.equals(allLanguages[2])){
+                    // translate text to german...
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setText(translateText("de", extras.getString("TXT_TO_TRANSLATE")));
+                } else {
+                    // translate text to spanish...
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setText(translateText("es", extras.getString("TXT_TO_TRANSLATE")));
+                }
+            }
         }
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public void onNothingSelected(AdapterView<?> adapterView) {}
 
+    private String translateText(String language, String text) {
+
+        /*switch (language){
+            case "el":
+                return "Greek";
+            case "de":
+                return "German";
+            case "es":
+                return "Spanish";
+        }*/
+
+        return null;
     }
 }

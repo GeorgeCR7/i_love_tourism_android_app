@@ -64,6 +64,7 @@
     <!-- Translate Activity -->
     <string name="translate_to">Übersetzen ins</string>
     <string-array name="spn_langs">
+        <item></item>
         <item>Griechisch</item>
         <item>Deutsch</item>
         <item>Spanisch</item>
