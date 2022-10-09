@@ -41,15 +41,15 @@
         android:id="@+id/btnAbout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="56dp"
         android:backgroundTint="#15801A"
         android:gravity="center"
         android:text="@string/about"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnTxtRecognition"
-        app:layout_constraintStart_toStartOf="@+id/btnTxtRecognition" />
+        app:layout_constraintEnd_toEndOf="@+id/btnEditProfile"
+        app:layout_constraintStart_toStartOf="@+id/btnEditProfile" />
 
     <TextView
         android:id="@+id/txtDate"
@@ -58,7 +58,7 @@
         android:layout_marginTop="55dp"
         android:gravity="center"
         android:textColor="#0F2ADC"
-        android:textSize="17sp"
+        android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -108,5 +108,17 @@
         app:layout_constraintEnd_toEndOf="@+id/btnTxtRecognition"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="@+id/btnTxtRecognition" />
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/profile"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAbout"
+        app:layout_constraintEnd_toEndOf="@+id/btnSights"
+        app:layout_constraintStart_toStartOf="@+id/btnSights" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

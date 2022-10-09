@@ -51,4 +51,7 @@ dependencies {
 
     // Image Labeling ML Kit.
     implementation 'com.google.mlkit:image-labeling:17.0.7'
+
+    // Translate text ML Kit.
+    implementation 'com.google.mlkit:translate:17.0.1'
 }

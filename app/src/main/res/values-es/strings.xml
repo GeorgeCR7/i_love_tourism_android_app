@@ -37,6 +37,7 @@
     <string name="logout">Salida</string>
     <string name="log_out_main">¡Cierre de sesión con éxito!</string>
     <string name="about">Sobre</string>
+    <string name="profile">Perfil</string>
 
     <!-- Image Labeling Activity. -->
     <string name="image_to_recognize">Imagen para reconocer</string>
@@ -69,5 +70,12 @@
         <item>Alemán</item>
         <item>Εspañol</item>
     </string-array>
+
+    <!-- Profile Activity. -->
+    <string name="date_account_created">Fecha de creación de la cuenta</string>
+    <string name="full_name">Nombre completo</string>
+    <string name="age">Años</string>
+    <string name="country">País</string>
+    <string name="save">Ahorrar</string>
 
 </resources>

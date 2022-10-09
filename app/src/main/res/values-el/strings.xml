@@ -37,6 +37,7 @@
     <string name="logout">Έξοδος</string>
     <string name="log_out_main">Επιτυχής έξοδος!</string>
     <string name="about">Σχετικά</string>
+    <string name="profile">Προφίλ</string>
 
     <!-- Image Labeling Activity. -->
     <string name="image_to_recognize">Εικόνα προς αναγνώριση</string>
@@ -61,7 +62,7 @@
     <string name="german">Γερμανικά</string>
     <string name="spanish">Ισπανικά</string>
 
-    <!-- Translate Activity -->
+    <!-- Translate Activity. -->
     <string name="translate_to">Μετάφραση σε</string>
     <string-array name="spn_langs">
         <item></item>
@@ -69,5 +70,12 @@
         <item>Γερμανικά</item>
         <item>Ισπανικά</item>
     </string-array>
+
+    <!-- Profile Activity. -->
+    <string name="date_account_created">Ημερομηνία δημιουργίας λογαριασμού</string>
+    <string name="full_name">Πλήρες όνομα</string>
+    <string name="age">Ηλικία</string>
+    <string name="country">Χώρα</string>
+    <string name="save">Αποθήκευση</string>
 
 </resources>

@@ -11,11 +11,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.login_register_app.R;
+import com.example.login_register_app.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -24,7 +30,12 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button btnRegister, btnGoLogin, btnLanguage;
 
+    // Firebase object for authentication.
     FirebaseAuth mAuth;
+
+    // Firebase objects for reading database.
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +45,12 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.emailRegister);
         password = findViewById(R.id.passwordRegister);
         passwordConfirm = findViewById(R.id.passwordRegConfirm);
+
         btnRegister = findViewById(R.id.btnRegister);
         btnGoLogin = findViewById(R.id.btnGoLogin);
         btnLanguage = findViewById(R.id.btnLanguage);
 
+        rootNode = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +84,9 @@ public class RegisterActivity extends AppCompatActivity {
         String strEmail = email.getText().toString();
         String strPassword = password.getText().toString();
         String strPasswordConfirm = passwordConfirm.getText().toString();
+
+        rootNode = FirebaseDatabase.getInstance();
+        reference = rootNode.getReference("Users");
 
         if (strEmail.isEmpty()) {
             email.setError(getResources().getString(R.string.email_empty));
@@ -106,7 +122,13 @@ public class RegisterActivity extends AppCompatActivity {
                                     R.string.success_register,
                                     Toast.LENGTH_SHORT).show();
                             //sendEmailVerification(strEmail);
-                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+
+                            // Create a new User object, only with email.
+                            User user = new User(strEmail, "", "", setDateCreated(), "");
+                            // Store the new User to the Firebase.
+                            reference.child(strEmail.replace(".","")).setValue(user);
+
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
@@ -131,6 +153,28 @@ public class RegisterActivity extends AppCompatActivity {
             return false;
         }
         return pat.matcher(email).matches();
+    }
+
+    private String setDateCreated() {
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+
+        String day, month;
+
+        if(cal.get(Calendar.DAY_OF_MONTH) < 10) {
+            day = "0" + cal.get(Calendar.DAY_OF_MONTH)+".";
+        } else {
+            day = ""+cal.get(Calendar.DAY_OF_MONTH)+".";
+        }
+
+        if((cal.get(Calendar.MONTH)+1) < 10) {
+            month = ".0" + (cal.get(Calendar.MONTH)+1)+".";
+        } else {
+            month = ""+(cal.get(Calendar.MONTH)+1)+".";
+        }
+
+        return day + month + cal.get(Calendar.YEAR);
     }
 
     // TODO: Find how to send an email verification after new user register.

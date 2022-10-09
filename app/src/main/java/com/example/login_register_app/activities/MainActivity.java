@@ -23,7 +23,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     Button btnImageLabeling, btnTxtRecognition, btnSights;
-    Button btnLogout, btnAbout;
+    Button btnEditProfile, btnAbout, btnLogout;
 
     TextView txtAppTitle, txtDate;
 
@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
         btnImageLabeling = findViewById(R.id.btnImageLabeling);
         btnTxtRecognition = findViewById(R.id.btnTxtRecognition);
         btnSights = findViewById(R.id.btnSights);
-        btnLogout = findViewById(R.id.btnLogout);
+        btnEditProfile = findViewById(R.id.btnEditProfile);
         btnAbout = findViewById(R.id.btnAbout);
+        btnLogout = findViewById(R.id.btnLogout);
 
         txtAppTitle = findViewById(R.id.txtAppTitle);
         txtDate = findViewById(R.id.txtDate);
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ImgLabelingActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -61,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SightsActivity.class);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        btnEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -97,19 +109,25 @@ public class MainActivity extends AppCompatActivity {
         txtAppTitle.setText(ss);
     }
 
-    private void setCurrentDate () {
+    private void setCurrentDate() {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
 
-        if ((cal.get(Calendar.MONTH)+1) < 10) {
-            txtDate.setText("0" +cal.get(Calendar.DAY_OF_MONTH) + ".0"
-                    + (cal.get(Calendar.MONTH)+1) + "." +
-                    cal.get(Calendar.YEAR));
+        String day, month;
+
+        if(cal.get(Calendar.DAY_OF_MONTH) < 10) {
+            day = "0" + cal.get(Calendar.DAY_OF_MONTH)+".";
         } else {
-            txtDate.setText(cal.get(Calendar.DAY_OF_MONTH) + "."
-                    + (cal.get(Calendar.MONTH)+1) + "." +
-                    cal.get(Calendar.YEAR));
+            day = ""+cal.get(Calendar.DAY_OF_MONTH)+".";
         }
+
+        if((cal.get(Calendar.MONTH)+1) < 10) {
+            month = ".0" + (cal.get(Calendar.MONTH)+1)+".";
+        } else {
+            month = ""+(cal.get(Calendar.MONTH)+1)+".";
+        }
+
+        txtDate.setText(day + month + cal.get(Calendar.YEAR));
     }
 }

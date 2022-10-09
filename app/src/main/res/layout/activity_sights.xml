@@ -82,7 +82,7 @@
         android:id="@+id/txtNearestSightLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="12dp"
         android:gravity="center"
         android:text="@string/nearest_sight"
         android:textColor="#090909"
@@ -90,14 +90,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtNearestSightResult"
         app:layout_constraintEnd_toEndOf="@+id/btnFind"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="@+id/btnFind" />
 
     <TextView
         android:id="@+id/txtNearestSightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="48dp"
         android:gravity="center"
         android:text=""
         android:textColor="#0E5E12"
@@ -105,6 +105,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="@+id/txtNearestSightLabel"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/txtNearestSightLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
