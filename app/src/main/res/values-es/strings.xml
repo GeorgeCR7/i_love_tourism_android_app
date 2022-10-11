@@ -47,6 +47,9 @@
     <string name="load_from_gallery">De la galería de almacenamiento</string>
     <string name="translate">Traducir</string>
 
+    <!-- Text Recognition Activity. -->
+    <string name="text_to_be_recognize">Texto a reconocer</string>
+
     <!-- Sights Activity.-->
     <string name="show_all_sights">Mostrar todas las vistas</string>
     <string name="open_map">Abrir mapa</string>
@@ -77,5 +80,6 @@
     <string name="age">Años</string>
     <string name="country">País</string>
     <string name="save">Ahorrar</string>
+    <string name="update_user_profile">¡Tu perfil se actualizó con éxito!</string>
 
 </resources>

@@ -58,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnTxtRecognition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TxtRecognitionActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnSights.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

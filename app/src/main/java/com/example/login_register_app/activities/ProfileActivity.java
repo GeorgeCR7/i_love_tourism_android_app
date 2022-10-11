@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.login_register_app.R;
-import com.example.login_register_app.models.Sight;
 import com.example.login_register_app.models.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -124,7 +123,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Object o) {
                         Toast.makeText(ProfileActivity.this,
-                                "Your data is updated successfully!", Toast.LENGTH_SHORT).show();
+                                R.string.update_user_profile, Toast.LENGTH_SHORT).show();
                     }
                 });
         finish();

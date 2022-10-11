@@ -47,6 +47,9 @@
     <string name="load_from_gallery">Από συλλογή</string>
     <string name="translate">Μετάφραση</string>
 
+    <!-- Text Recognition Activity. -->
+    <string name="text_to_be_recognize">Κείμενο προς αναγνώριση</string>
+
     <!-- Sights Activity. -->
     <string name="show_all_sights">Προβολή όλων των αξιοθέατων</string>
     <string name="open_map">Άνοιγμα χάρτη</string>
@@ -77,5 +80,6 @@
     <string name="age">Ηλικία</string>
     <string name="country">Χώρα</string>
     <string name="save">Αποθήκευση</string>
+    <string name="update_user_profile">Επιτυχής ενημέρωση προφίλ!</string>
 
 </resources>

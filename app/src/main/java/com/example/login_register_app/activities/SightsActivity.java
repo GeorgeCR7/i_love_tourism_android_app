@@ -74,6 +74,7 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         }
 
         //Get my current location via GPS.
+        // TODO: This function is not working, find another solution.
         getMyLocation();
 
         btnMap.setOnClickListener(new View.OnClickListener() {
