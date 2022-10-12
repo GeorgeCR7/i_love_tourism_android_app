@@ -61,6 +61,9 @@ dependencies {
     // Image Labeling ML Kit.
     implementation 'com.google.mlkit:image-labeling:17.0.7'
 
+    // Text recognition ML Kit.
+    implementation 'com.google.android.gms:play-services-mlkit-text-recognition:18.0.2'
+
     // Translate text ML Kit.
     implementation 'com.google.mlkit:translate:17.0.1'
 }

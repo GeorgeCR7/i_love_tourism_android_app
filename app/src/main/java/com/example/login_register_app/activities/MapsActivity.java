@@ -46,10 +46,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setZoomGesturesEnabled(true);
 
-        //Take the list of vaccine centers from another activity and store data in this global variable.
+        //Take the list of sights from another activity and store data in this global variable.
         sights = getIntent().getParcelableArrayListExtra("SIGHTS_LIST");
 
-        //Loop the list of centers and make a pin in Map for each one.
+        //Loop the list of sights and make a pin in Map for each one.
         for (Sight s : sights){
             LatLng location = new LatLng(s.getLatitude(), s.getLongitude());
             mMap.addMarker(new MarkerOptions().position(location).title(s.getName()));

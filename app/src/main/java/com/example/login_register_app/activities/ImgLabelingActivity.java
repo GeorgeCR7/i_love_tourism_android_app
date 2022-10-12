@@ -28,6 +28,8 @@ import com.google.mlkit.vision.label.ImageLabeler;
 import com.google.mlkit.vision.label.ImageLabeling;
 import com.google.mlkit.vision.label.defaults.ImageLabelerOptions;
 
+import java.util.ArrayList;
+
 public class ImgLabelingActivity extends AppCompatActivity {
 
     private static final String TAG = "MyTag";
@@ -46,6 +48,8 @@ public class ImgLabelingActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> cameraLauncher;
     ActivityResultLauncher<Intent> galleryLauncher;
 
+    private ArrayList<String> imgLabelList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +66,9 @@ public class ImgLabelingActivity extends AppCompatActivity {
 
         myImage = findViewById(R.id.myImage);
         myImage.setVisibility(View.INVISIBLE);
+
+        imgLabelList = new ArrayList<>();
+        imgLabelList.add("img_label_list");
 
         btnLoadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +109,8 @@ public class ImgLabelingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ImgLabelingActivity.this, TranslateActivity.class);
-                intent.putExtra("TXT_TO_TRANSLATE", txtImgLblResult.getText().toString());
+                imgLabelList.add(txtImgLblResult.getText().toString());
+                intent.putStringArrayListExtra("img_label_list", imgLabelList);
                 startActivity(intent);
                 finish();
             }

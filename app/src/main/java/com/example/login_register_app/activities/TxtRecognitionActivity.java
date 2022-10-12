@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.example.login_register_app.R;
 
+import java.util.ArrayList;
+
 public class TxtRecognitionActivity extends AppCompatActivity {
 
     Button btnTxtRecLoadImg, btnTxtRecTranslate, btnBackTxtRec;
@@ -18,6 +20,8 @@ public class TxtRecognitionActivity extends AppCompatActivity {
     TextView txtYourImageRec, txtRecResult;
 
     ImageView imageTxtRec;
+
+    private ArrayList<String> txtRecList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +40,15 @@ public class TxtRecognitionActivity extends AppCompatActivity {
         imageTxtRec = findViewById(R.id.imageTxtRec);
         imageTxtRec.setVisibility(View.INVISIBLE);
 
+        txtRecList = new ArrayList<>();
+        txtRecList.add("txt_rec");
 
         btnTxtRecTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TxtRecognitionActivity.this, TranslateActivity.class);
-                intent.putExtra("REC_TXT_TO_TRANSLATE", txtRecResult.getText().toString());
+                txtRecList.add(txtRecResult.getText().toString());
+                intent.putStringArrayListExtra("txt_rec_list", txtRecList);
                 startActivity(intent);
                 finish();
             }

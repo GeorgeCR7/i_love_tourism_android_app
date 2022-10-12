@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     Button btnSaveChanges, btnBackProfile;
 
+    TextView txtPrfEmailLabel, txtPrfDateCreatedLabel;
     TextView txtPrfEmailValue, txtPrfDateCreatedValue;
 
     EditText edTxtPrfNameValue, edTxtPrfAgeValue, edTxtPrfCountryValue;
@@ -47,6 +51,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         btnSaveChanges = findViewById(R.id.btnSaveChanges);
         btnBackProfile = findViewById(R.id.btnBackProfile);
+
+        // Init & underline label.
+        txtPrfEmailLabel = findViewById(R.id.txtPrfEmailLabel);
+        txtPrfEmailLabel.setPaintFlags(txtPrfEmailLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        // Init & underline label.
+        txtPrfDateCreatedLabel = findViewById(R.id.txtPrfDateCreatedLabel);
+        txtPrfDateCreatedLabel.setPaintFlags(txtPrfDateCreatedLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         txtPrfEmailValue = findViewById(R.id.txtPrfEmailValue);
         txtPrfDateCreatedValue = findViewById(R.id.txtPrfDateCreatedValue);
