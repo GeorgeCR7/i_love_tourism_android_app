@@ -110,7 +110,7 @@ public class ImgLabelingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ImgLabelingActivity.this, TranslateActivity.class);
                 imgLabelList.add(txtImgLblResult.getText().toString());
-                intent.putStringArrayListExtra("img_label_list", imgLabelList);
+                intent.putStringArrayListExtra("TRANSLATE_ACTV", imgLabelList);
                 startActivity(intent);
                 finish();
             }

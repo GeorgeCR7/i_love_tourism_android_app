@@ -10,8 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.login_register_app.R;
+
+import java.util.ArrayList;
 
 public class TranslateActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -20,6 +23,8 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     TextView txtTranslateResult;
 
     Spinner spnTranslateTxt;
+
+    ArrayList<String> myList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,19 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         spnTranslateTxt.setAdapter(adapter);
         spnTranslateTxt.setOnItemSelectedListener(this);
 
+        myList = new ArrayList<>();
+        myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
+
+        if(myList.get(0).equals("img_label_list")) {
+            Toast.makeText(TranslateActivity.this,
+                    "I came from img label activity.",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(TranslateActivity.this,
+                    "I came from txt rec activity.",
+                    Toast.LENGTH_SHORT).show();
+        }
+
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,9 +68,19 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+
+        // Get the selected language from the spinner.
         String selectedLang = adapterView.getItemAtPosition(position).toString();
         Bundle extras = getIntent().getExtras();
         String[] allLanguages = getResources().getStringArray(R.array.spn_langs);
+
+
+
+
+
+
+
+
         if (!selectedLang.equals("")){
             if (extras!= null){
                 if (selectedLang.equals(allLanguages[1])){

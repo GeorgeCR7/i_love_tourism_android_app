@@ -49,6 +49,7 @@
 
     <!-- Text Recognition Activity. -->
     <string name="text_to_be_recognize">Zu erkennender Text</string>
+    <string name="detect_text">Text Erkennen</string>
 
     <!-- Sights Activity. -->
     <string name="show_all_sights">Alle Sehenswürdigkeiten anzeigen</string>

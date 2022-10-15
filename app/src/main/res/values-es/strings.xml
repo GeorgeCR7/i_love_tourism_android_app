@@ -49,6 +49,7 @@
 
     <!-- Text Recognition Activity. -->
     <string name="text_to_be_recognize">Texto a reconocer</string>
+    <string name="detect_text">Detectar Texto</string>
 
     <!-- Sights Activity.-->
     <string name="show_all_sights">Mostrar todas las vistas</string>
