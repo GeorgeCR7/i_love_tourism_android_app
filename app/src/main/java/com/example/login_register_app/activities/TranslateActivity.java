@@ -1,7 +1,5 @@
 package com.example.login_register_app.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +8,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login_register_app.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.translate.TranslateLanguage;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.Translator;
+import com.google.mlkit.nl.translate.TranslatorOptions;
 
 import java.util.ArrayList;
 
@@ -24,7 +31,10 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     Spinner spnTranslateTxt;
 
-    ArrayList<String> myList;
+    private ArrayList<String> myList;
+
+    private Translator translatorEl, translatorDe, translatorEs;
+    private Boolean boolEl = false, boolDe = false, boolEs = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +53,98 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         spnTranslateTxt.setAdapter(adapter);
         spnTranslateTxt.setOnItemSelectedListener(this);
 
+        TranslatorOptions translatorOptionsEl =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.ENGLISH)
+                        .setTargetLanguage(TranslateLanguage.GREEK)
+                        .build();
+        translatorEl = Translation.getClient(translatorOptionsEl);
+
+        TranslatorOptions translatorOptionsDe =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.ENGLISH)
+                        .setTargetLanguage(TranslateLanguage.GERMAN)
+                        .build();
+        translatorDe = Translation.getClient(translatorOptionsDe);
+
+        TranslatorOptions translatorOptionsEs =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.ENGLISH)
+                        .setTargetLanguage(TranslateLanguage.SPANISH)
+                        .build();
+        translatorEs = Translation.getClient(translatorOptionsEs);
+
+        DownloadConditions downloadConditions = new DownloadConditions.Builder()
+                .requireWifi()
+                .build();
+
+        translatorEl.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEl = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEl = false;
+                    }
+                });
+
+        translatorDe.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolDe = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolDe = false;
+                    }
+                });
+
+        translatorEs.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEs = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEs = false;
+                    }
+                });
+
+
         myList = new ArrayList<>();
         myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
 
-        if(myList.get(0).equals("img_label_list")) {
+        /*if(myList.get(0).equals("img_label_list")) {
             Toast.makeText(TranslateActivity.this,
-                    "I came from img label activity.",
+                    "I came from img label activity." +
+                            "\nText: " + myList.get(1),
                     Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(TranslateActivity.this,
-                    "I came from txt rec activity.",
+                    "I came from txt rec activity." +
+                            "\nText: " + myList.get(1),
                     Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TranslateActivity.this, ImgLabelingActivity.class);
+                Intent intent;
+                if(myList.get(0).equals("img_label_list")) {
+                    intent = new Intent(TranslateActivity.this, ImgLabelingActivity.class);
+                } else {
+                    intent = new Intent(TranslateActivity.this, TxtRecognitionActivity.class);
+                }
                 startActivity(intent);
                 finish();
             }
@@ -74,27 +159,24 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         Bundle extras = getIntent().getExtras();
         String[] allLanguages = getResources().getStringArray(R.array.spn_langs);
 
-
-
-
-
-
-
-
         if (!selectedLang.equals("")){
             if (extras!= null){
-                if (selectedLang.equals(allLanguages[1])){
-                    // translate text to greek...
-                    txtTranslateResult.setVisibility(View.VISIBLE);
-                    txtTranslateResult.setText(translateText("el", extras.getString("TXT_TO_TRANSLATE")));
-                } else if (selectedLang.equals(allLanguages[2])){
-                    // translate text to german...
-                    txtTranslateResult.setVisibility(View.VISIBLE);
-                    txtTranslateResult.setText(translateText("de", extras.getString("TXT_TO_TRANSLATE")));
+                if (myList.get(0).equals("txt_rec")){
+                    if (selectedLang.equals(allLanguages[1])){
+                        // translate text to greek...
+                        txtTranslateResult.setVisibility(View.VISIBLE);
+                        translateText("el", myList.get(1));
+                    } else if (selectedLang.equals(allLanguages[2])){
+                        // translate text to german...
+                        txtTranslateResult.setVisibility(View.VISIBLE);
+                        translateText("de", myList.get(1));
+                    } else {
+                        // translate text to spanish...
+                        txtTranslateResult.setVisibility(View.VISIBLE);
+                        translateText("es", myList.get(1));
+                    }
                 } else {
-                    // translate text to spanish...
-                    txtTranslateResult.setVisibility(View.VISIBLE);
-                    txtTranslateResult.setText(translateText("es", extras.getString("TXT_TO_TRANSLATE")));
+
                 }
             }
         }
@@ -103,17 +185,57 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {}
 
-    private String translateText(String language, String text) {
+    private void translateText(String language, String text) {
 
-        /*switch (language){
+        switch (language){
             case "el":
-                return "Greek";
+                if (boolEl){
+                    translatorEl.translate(text)
+                            .addOnSuccessListener(new OnSuccessListener<String>() {
+                                @Override
+                                public void onSuccess(String s) {
+                                    txtTranslateResult.setText(s);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    txtTranslateResult.setText(e.toString());
+                                }
+                            });
+                }
             case "de":
-                return "German";
+                if (boolDe){
+                    translatorDe.translate(text)
+                            .addOnSuccessListener(new OnSuccessListener<String>() {
+                                @Override
+                                public void onSuccess(String s) {
+                                    txtTranslateResult.setText(s);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    txtTranslateResult.setText(e.toString());
+                                }
+                            });
+                }
             case "es":
-                return "Spanish";
-        }*/
-
-        return null;
+                if (boolEs){
+                    translatorEs.translate(text)
+                            .addOnSuccessListener(new OnSuccessListener<String>() {
+                                @Override
+                                public void onSuccess(String s) {
+                                    txtTranslateResult.setText(s);
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    txtTranslateResult.setText(e.toString());
+                                }
+                            });
+                }
+        }
     }
 }

@@ -1,44 +1,30 @@
 package com.example.login_register_app.activities;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
-
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login_register_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.mlkit.vision.common.InputImage;
-import com.google.mlkit.vision.label.ImageLabeler;
-import com.google.mlkit.vision.label.ImageLabeling;
-import com.google.mlkit.vision.label.defaults.ImageLabelerOptions;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -73,8 +59,6 @@ public class TxtRecognitionActivity extends AppCompatActivity {
         imageTxtRec.setVisibility(View.INVISIBLE);
 
         txtRecList = new ArrayList<>();
-        txtRecList.add("txt_rec");
-
         strUri = "";
 
         btnTxtRecLoadImg.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +67,6 @@ public class TxtRecognitionActivity extends AppCompatActivity {
                 txtYourImageRec.setVisibility(View.VISIBLE);
                 imageTxtRec.setVisibility(View.VISIBLE);
                 btnTxtRecDetect.setVisibility(View.VISIBLE);
-                btnTxtRecTranslate.setVisibility(View.VISIBLE);
                 mGetContent.launch("image/*");
             }
         });
@@ -100,6 +83,7 @@ public class TxtRecognitionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TxtRecognitionActivity.this, TranslateActivity.class);
+                txtRecList.add("txt_rec");
                 txtRecList.add(txtRecResult.getText().toString());
                 intent.putStringArrayListExtra("TRANSLATE_ACTV", txtRecList);
                 startActivity(intent);
@@ -138,7 +122,12 @@ public class TxtRecognitionActivity extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Text>() {
                                 @Override
                                 public void onSuccess(Text text) {
-                                    txtRecResult.setText(text.getText());
+                                    if (text.getText().length() == 0){
+                                        txtRecResult.setText(R.string.image_detect_no_txt);
+                                    } else {
+                                        btnTxtRecTranslate.setVisibility(View.VISIBLE);
+                                        txtRecResult.setText(text.getText());
+                                    }
                                 }
                             })
                             .addOnFailureListener(

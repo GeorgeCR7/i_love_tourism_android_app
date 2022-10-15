@@ -1,13 +1,5 @@
 package com.example.login_register_app.activities;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -20,6 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.login_register_app.R;
 import com.google.mlkit.vision.common.InputImage;
@@ -68,7 +68,6 @@ public class ImgLabelingActivity extends AppCompatActivity {
         myImage.setVisibility(View.INVISIBLE);
 
         imgLabelList = new ArrayList<>();
-        imgLabelList.add("img_label_list");
 
         btnLoadImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +108,7 @@ public class ImgLabelingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ImgLabelingActivity.this, TranslateActivity.class);
+                imgLabelList.add("img_label_list");
                 imgLabelList.add(txtImgLblResult.getText().toString());
                 intent.putStringArrayListExtra("TRANSLATE_ACTV", imgLabelList);
                 startActivity(intent);

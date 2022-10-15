@@ -50,6 +50,7 @@
     <!-- Text Recognition Activity. -->
     <string name="text_to_be_recognize">Κείμενο προς αναγνώριση</string>
     <string name="detect_text">Ανίχνευση κειμένου</string>
+    <string name="image_detect_no_txt">Η εικόνα δεν περιέχει κείμενο</string>
 
     <!-- Sights Activity. -->
     <string name="show_all_sights">Προβολή όλων των αξιοθέατων</string>
