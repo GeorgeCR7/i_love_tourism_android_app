@@ -59,6 +59,8 @@
     <string name="text_to_be_recognize">Text to be recognize</string>
     <string name="detect_text">Detect Text</string>
     <string name="image_detect_no_txt">Image contains no text</string>
+    <string name="original_text">Original Text</string>
+    <string name="translated_text">Translated Text</string>
 
     <string-array name="spn_langs">
         <item></item>

@@ -69,6 +69,8 @@
 
     <!-- Translate Activity -->
     <string name="translate_to">Traducir a</string>
+    <string name="original_text">Texto original</string>
+    <string name="translated_text">Texto traducido</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Griego</item>

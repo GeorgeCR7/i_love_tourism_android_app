@@ -1,6 +1,7 @@
 package com.example.login_register_app.activities;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,7 +28,8 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     Button btnBackTranslate;
 
-    TextView txtTranslateResult;
+    TextView txtTranslateOrgLabel, txtTranslateTo, txtTranslateResultLabel;
+    TextView txtTranslateOrgValue, txtTranslateResult;
 
     Spinner spnTranslateTxt;
 
@@ -43,8 +45,19 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
         btnBackTranslate = findViewById(R.id.btnBackTranslate);
 
+        txtTranslateOrgLabel = findViewById(R.id.txtTranslateOrgLabel);
+        txtTranslateOrgLabel.setPaintFlags(txtTranslateOrgLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        txtTranslateTo = findViewById(R.id.txtTranslateTo);
+        txtTranslateTo.setPaintFlags(txtTranslateTo.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        txtTranslateResultLabel = findViewById(R.id.txtTranslateResultLabel);
+        txtTranslateResultLabel.setPaintFlags(txtTranslateResultLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        txtTranslateResultLabel.setVisibility(View.INVISIBLE);
+
         txtTranslateResult = findViewById(R.id.txtTranslateResult);
         txtTranslateResult.setVisibility(View.INVISIBLE);
+
+        txtTranslateOrgValue = findViewById(R.id.txtTranslateOrgValue);
 
         spnTranslateTxt = findViewById(R.id.spnTranslateTxt);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter
@@ -123,6 +136,8 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
         myList = new ArrayList<>();
         myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
+        txtTranslateOrgValue.setText(myList.get(1));
+
 
         /*if(myList.get(0).equals("img_label_list")) {
             Toast.makeText(TranslateActivity.this,
@@ -164,14 +179,17 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                 if (myList.get(0).equals("txt_rec")){
                     if (selectedLang.equals(allLanguages[1])){
                         // translate text to greek...
+                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
                         translateText("el", myList.get(1));
                     } else if (selectedLang.equals(allLanguages[2])){
                         // translate text to german...
+                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
                         translateText("de", myList.get(1));
                     } else {
                         // translate text to spanish...
+                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
                         translateText("es", myList.get(1));
                     }

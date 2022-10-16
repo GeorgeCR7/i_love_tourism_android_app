@@ -69,6 +69,8 @@
 
     <!-- Translate Activity. -->
     <string name="translate_to">Μετάφραση σε</string>
+    <string name="original_text">Αρχικό κείμενο</string>
+    <string name="translated_text">Μεταφρασμένο κείμενο</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Ελληνικά</item>
