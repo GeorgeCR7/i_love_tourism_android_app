@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import com.example.login_register_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.languageid.LanguageIdentification;
+import com.google.mlkit.nl.languageid.LanguageIdentifier;
 import com.google.mlkit.nl.translate.TranslateLanguage;
 import com.google.mlkit.nl.translate.Translation;
 import com.google.mlkit.nl.translate.Translator;
@@ -176,25 +179,46 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
         if (!selectedLang.equals("")){
             if (extras!= null){
-                if (myList.get(0).equals("txt_rec")){
+                if (myList.get(0).equals("img_label_list")){
                     if (selectedLang.equals(allLanguages[1])){
                         // translate text to greek...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
+                        txtTranslateResult.clearComposingText();
                         translateText("el", myList.get(1));
                     } else if (selectedLang.equals(allLanguages[2])){
                         // translate text to german...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
+                        txtTranslateResult.clearComposingText();
                         translateText("de", myList.get(1));
                     } else {
                         // translate text to spanish...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
+                        txtTranslateResult.clearComposingText();
                         translateText("es", myList.get(1));
                     }
                 } else {
-
+                    if (selectedLang.equals(allLanguages[1])){
+                        // translate text to greek...
+                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                        txtTranslateResult.setVisibility(View.VISIBLE);
+                        identifyLanguage(myList.get(1));
+                        translateText("el", myList.get(1));
+                    } else if (selectedLang.equals(allLanguages[2])){
+                        // translate text to german...
+                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                        txtTranslateResult.setVisibility(View.VISIBLE);
+                        identifyLanguage(myList.get(1));
+                        translateText("de", myList.get(1));
+                    } else {
+                        // translate text to spanish...
+                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                        txtTranslateResult.setVisibility(View.VISIBLE);
+                        identifyLanguage(myList.get(1));
+                        translateText("es", myList.get(1));
+                    }
                 }
             }
         }
@@ -255,5 +279,33 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                             });
                 }
         }
+    }
+
+    private void identifyLanguage(String text) {
+
+        LanguageIdentifier languageIdentifier = LanguageIdentification.getClient();
+        languageIdentifier.identifyLanguage(text)
+                .addOnSuccessListener(new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String languageCode) {
+                        if (languageCode.equals("und")) {
+                            Toast.makeText(TranslateActivity.this,
+                                    "Can't identify language.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(TranslateActivity.this,
+                                    "Language: " + languageCode,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(TranslateActivity.this,
+                                e.getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
