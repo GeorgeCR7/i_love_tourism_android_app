@@ -38,6 +38,13 @@
     <string name="log_out_main">¡Cierre de sesión con éxito!</string>
     <string name="about">Sobre</string>
     <string name="profile">Perfil</string>
+    <string name="sunday">Domingo</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miércoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sábado</string>
 
     <!-- Image Labeling Activity. -->
     <string name="image_to_recognize">Imagen para reconocer</string>
@@ -70,7 +77,9 @@
     <!-- Translate Activity -->
     <string name="translate_to">Traducir a</string>
     <string name="original_text">Texto original</string>
+    <string name="text_language">Idioma del texto</string>
     <string name="translated_text">Texto traducido</string>
+    <string name="change_language">Cambiar idioma</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Griego</item>

@@ -61,6 +61,15 @@
     <string name="image_detect_no_txt">Image contains no text</string>
     <string name="original_text">Original Text</string>
     <string name="translated_text">Translated Text</string>
+    <string name="change_language">Change Language</string>
+    <string name="text_language">Text Language</string>
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
 
     <string-array name="spn_langs">
         <item></item>

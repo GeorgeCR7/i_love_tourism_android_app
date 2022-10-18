@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -19,6 +20,8 @@ import com.example.login_register_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.mlkit.nl.languageid.LanguageIdentification;
+import com.google.mlkit.nl.languageid.LanguageIdentifier;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
@@ -59,6 +62,8 @@ public class TxtRecognitionActivity extends AppCompatActivity {
         imageTxtRec.setVisibility(View.INVISIBLE);
 
         txtRecList = new ArrayList<>();
+        txtRecList.add("txt_rec");
+
         strUri = "";
 
         btnTxtRecLoadImg.setOnClickListener(new View.OnClickListener() {
@@ -83,8 +88,6 @@ public class TxtRecognitionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TxtRecognitionActivity.this, TranslateActivity.class);
-                txtRecList.add("txt_rec");
-                txtRecList.add(txtRecResult.getText().toString());
                 intent.putStringArrayListExtra("TRANSLATE_ACTV", txtRecList);
                 startActivity(intent);
                 finish();
@@ -127,6 +130,8 @@ public class TxtRecognitionActivity extends AppCompatActivity {
                                     } else {
                                         btnTxtRecTranslate.setVisibility(View.VISIBLE);
                                         txtRecResult.setText(text.getText());
+                                        txtRecList.add(text.getText());
+                                        identifyLanguage(text.getText());
                                     }
                                 }
                             })
@@ -139,5 +144,36 @@ public class TxtRecognitionActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void identifyLanguage(String text) {
+
+
+        LanguageIdentifier languageIdentifier = LanguageIdentification.getClient();
+        languageIdentifier.identifyLanguage(text)
+                .addOnSuccessListener(new OnSuccessListener<String>() {
+                    @Override
+                    public void onSuccess(String languageCode) {
+                        if (languageCode.equals("und")) {
+                            Toast.makeText(TxtRecognitionActivity.this,
+                                    "Can't identify language.",
+                                    Toast.LENGTH_SHORT).show();
+                            txtRecList.add(languageCode);
+                        } else {
+                            Toast.makeText(TxtRecognitionActivity.this,
+                                    "Language: " + languageCode,
+                                    Toast.LENGTH_SHORT).show();
+                            txtRecList.add(languageCode);
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(TxtRecognitionActivity.this,
+                                e.getMessage(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

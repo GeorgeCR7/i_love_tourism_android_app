@@ -26,20 +26,20 @@
         android:id="@+id/txtTranslateTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="50dp"
         android:text="@string/translate_to"
         android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/txtTranslateOrgValue"
-        app:layout_constraintStart_toStartOf="@+id/txtTranslateOrgValue"
-        app:layout_constraintTop_toBottomOf="@+id/txtTranslateOrgValue" />
+        app:layout_constraintEnd_toEndOf="@+id/txtLanguageValue"
+        app:layout_constraintStart_toStartOf="@+id/txtLanguageValue"
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguageValue" />
 
     <Spinner
         android:id="@+id/spnTranslateTxt"
         android:layout_width="285dp"
         android:layout_height="45dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="2dp"
         android:background="#1C1B1B"
         android:backgroundTint="#A2AAAE"
         app:layout_constraintEnd_toEndOf="@+id/txtTranslateTo"
@@ -52,7 +52,7 @@
         android:id="@+id/txtTranslateResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="3dp"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -65,7 +65,7 @@
         android:id="@+id/txtTranslateOrgLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:text="@string/original_text"
         android:textColor="#000000"
@@ -79,7 +79,7 @@
         android:id="@+id/txtTranslateOrgValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="3dp"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="20sp"
@@ -92,7 +92,7 @@
         android:id="@+id/txtTranslateResultLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="@string/translated_text"
         android:textColor="#000000"
@@ -101,5 +101,45 @@
         app:layout_constraintEnd_toEndOf="@+id/spnTranslateTxt"
         app:layout_constraintStart_toStartOf="@+id/spnTranslateTxt"
         app:layout_constraintTop_toBottomOf="@+id/spnTranslateTxt" />
+
+    <Button
+        android:id="@+id/btnChangeLang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#15801A"
+        android:gravity="center"
+        android:text="@string/change_language"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBackTranslate"
+        app:layout_constraintEnd_toEndOf="@+id/txtTranslateResult"
+        app:layout_constraintStart_toStartOf="@+id/txtTranslateResult"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtLanguageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/text_language"
+        android:textColor="#000000"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtTranslateOrgValue"
+        app:layout_constraintStart_toStartOf="@+id/txtTranslateOrgValue"
+        app:layout_constraintTop_toBottomOf="@+id/txtTranslateOrgValue" />
+
+    <TextView
+        android:id="@+id/txtLanguageValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtLanguageLabel"
+        app:layout_constraintStart_toStartOf="@+id/txtLanguageLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguageLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

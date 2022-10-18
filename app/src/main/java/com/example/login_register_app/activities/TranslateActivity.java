@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +17,6 @@ import com.example.login_register_app.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.mlkit.common.model.DownloadConditions;
-import com.google.mlkit.nl.languageid.LanguageIdentification;
-import com.google.mlkit.nl.languageid.LanguageIdentifier;
 import com.google.mlkit.nl.translate.TranslateLanguage;
 import com.google.mlkit.nl.translate.Translation;
 import com.google.mlkit.nl.translate.Translator;
@@ -29,9 +26,10 @@ import java.util.ArrayList;
 
 public class TranslateActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Button btnBackTranslate;
+    Button btnChangeLang, btnBackTranslate;
 
     TextView txtTranslateOrgLabel, txtTranslateTo, txtTranslateResultLabel;
+    TextView txtLanguageLabel, txtLanguageValue;
     TextView txtTranslateOrgValue, txtTranslateResult;
 
     Spinner spnTranslateTxt;
@@ -46,12 +44,17 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
 
+        btnChangeLang = findViewById(R.id.btnChangeLang);
         btnBackTranslate = findViewById(R.id.btnBackTranslate);
 
         txtTranslateOrgLabel = findViewById(R.id.txtTranslateOrgLabel);
         txtTranslateOrgLabel.setPaintFlags(txtTranslateOrgLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         txtTranslateTo = findViewById(R.id.txtTranslateTo);
         txtTranslateTo.setPaintFlags(txtTranslateTo.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        txtLanguageLabel = findViewById(R.id.txtLanguageLabel);
+        txtLanguageLabel.setPaintFlags(txtLanguageLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        txtLanguageValue = findViewById(R.id.txtLanguageValue);
 
         txtTranslateResultLabel = findViewById(R.id.txtTranslateResultLabel);
         txtTranslateResultLabel.setPaintFlags(txtTranslateResultLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -141,18 +144,27 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
         txtTranslateOrgValue.setText(myList.get(1));
 
-
         /*if(myList.get(0).equals("img_label_list")) {
             Toast.makeText(TranslateActivity.this,
                     "I came from img label activity." +
-                            "\nText: " + myList.get(1),
+                            "\nText: " + myList.get(1) + "" +
+                            "\nLang: " + myList.get(2),
                     Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(TranslateActivity.this,
                     "I came from txt rec activity." +
-                            "\nText: " + myList.get(1),
+                            "\nText: " + myList.get(1) +
+                            "\nLanguage text: " + myList.get(2),
                     Toast.LENGTH_SHORT).show();
         }*/
+
+        btnChangeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
 
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -204,19 +216,19 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                         // translate text to greek...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        identifyLanguage(myList.get(1));
+                        //identifyLanguage(myList.get(1));
                         translateText("el", myList.get(1));
                     } else if (selectedLang.equals(allLanguages[2])){
                         // translate text to german...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        identifyLanguage(myList.get(1));
+                        //identifyLanguage(myList.get(1));
                         translateText("de", myList.get(1));
                     } else {
                         // translate text to spanish...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        identifyLanguage(myList.get(1));
+                        //identifyLanguage(myList.get(1));
                         translateText("es", myList.get(1));
                     }
                 }
@@ -281,7 +293,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         }
     }
 
-    private void identifyLanguage(String text) {
+    /*private void identifyLanguage(String text) {
 
         LanguageIdentifier languageIdentifier = LanguageIdentification.getClient();
         languageIdentifier.identifyLanguage(text)
@@ -307,5 +319,5 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
+    }*/
 }

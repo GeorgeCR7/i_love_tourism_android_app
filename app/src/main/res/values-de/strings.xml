@@ -38,6 +38,13 @@
     <string name="log_out_main">Erfolgreich abgemeldet!</string>
     <string name="about">Um</string>
     <string name="profile">Profil</string>
+    <string name="sunday">Sonntag</string>
+    <string name="monday">Montag</string>
+    <string name="tuesday">Dienstag</string>
+    <string name="wednesday">Mittwoch</string>
+    <string name="thursday">Donnerstag</string>
+    <string name="friday">Freitag</string>
+    <string name="saturday">Samstag</string>
 
     <!-- Image Labeling Activity. -->
     <string name="image_to_recognize">Bild zu erkennen</string>
@@ -70,7 +77,9 @@
     <!-- Translate Activity -->
     <string name="translate_to">Übersetzen ins</string>
     <string name="original_text">Original Text</string>
+    <string name="text_language">Textsprache</string>
     <string name="translated_text">Übersetzter Text</string>
+    <string name="change_language">Sprache ändern</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Griechisch</item>

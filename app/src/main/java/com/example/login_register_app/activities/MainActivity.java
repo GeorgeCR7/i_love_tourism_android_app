@@ -1,7 +1,5 @@
 package com.example.login_register_app.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,12 +11,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.login_register_app.AboutWindow;
 import com.example.login_register_app.R;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -123,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.setTime(new Date());
 
-        String day, month;
+        String dayName = null, day, month;
 
         if(cal.get(Calendar.DAY_OF_MONTH) < 10) {
             day = "0" + cal.get(Calendar.DAY_OF_MONTH)+".";
@@ -137,6 +141,28 @@ public class MainActivity extends AppCompatActivity {
             month = ""+(cal.get(Calendar.MONTH)+1)+".";
         }
 
-        txtDate.setText(day + month + cal.get(Calendar.YEAR));
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            LocalDate today = LocalDate.now();
+            DayOfWeek dayOfWeek = today.getDayOfWeek();
+            dayName = dayOfWeek.getDisplayName(TextStyle.FULL, Locale.getDefault());
+        }
+
+        if (dayName.equals("Sunday")) {
+            dayName = getResources().getString(R.string.sunday);
+        } else if (dayName.equals("Monday")) {
+            dayName = getResources().getString(R.string.monday);
+        } else if (dayName.equals("Tuesday")) {
+            dayName = getResources().getString(R.string.tuesday);
+        } else if (dayName.equals("Wednesday")) {
+            dayName = getResources().getString(R.string.wednesday);
+        } else if (dayName.equals("Thursday")) {
+            dayName = getResources().getString(R.string.thursday);
+        } else if (dayName.equals("Friday")) {
+            dayName = getResources().getString(R.string.friday);
+        } else if (dayName.equals("Saturday")) {
+            dayName = getResources().getString(R.string.saturday);
+        }
+
+        txtDate.setText(dayName + ", " +day + month + cal.get(Calendar.YEAR));
     }
 }
