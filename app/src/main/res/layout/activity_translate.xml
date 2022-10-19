@@ -102,20 +102,6 @@
         app:layout_constraintStart_toStartOf="@+id/spnTranslateTxt"
         app:layout_constraintTop_toBottomOf="@+id/spnTranslateTxt" />
 
-    <Button
-        android:id="@+id/btnChangeLang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#15801A"
-        android:gravity="center"
-        android:text="@string/change_language"
-        android:textAllCaps="false"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBackTranslate"
-        app:layout_constraintEnd_toEndOf="@+id/txtTranslateResult"
-        app:layout_constraintStart_toStartOf="@+id/txtTranslateResult"
-        tools:ignore="TextContrastCheck" />
-
     <TextView
         android:id="@+id/txtLanguageLabel"
         android:layout_width="wrap_content"

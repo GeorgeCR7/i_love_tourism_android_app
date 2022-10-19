@@ -1,10 +1,5 @@
 package com.example.login_register_app.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,7 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.login_register_app.R;
 import com.example.login_register_app.models.Sight;
@@ -31,7 +30,7 @@ import java.util.ArrayList;
 
 public class SightsActivity extends AppCompatActivity implements LocationListener {
 
-    Button btnMap, btnFind, btnBack;
+    Button btnMap, btnSightsList, btnFind, btnBack;
 
     TextView txtNearestSightLabel, txtNearestSightResult;
 
@@ -56,6 +55,7 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         sights = new ArrayList<>();
 
         btnMap = findViewById(R.id.btnMap);
+        btnSightsList = findViewById(R.id.btnSightsList);
         btnFind = findViewById(R.id.btnFind);
         btnBack = findViewById(R.id.btnBack);
 
@@ -101,6 +101,29 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
             }
         });
 
+        btnSightsList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reference = rootNode.getReference().child("Sights");
+
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                            Sight sight = dataSnapshot.getValue(Sight.class);
+                            sights.add(sight);
+                        }
+                        Intent intent = new Intent(SightsActivity.this, SightsListActivity.class);
+                        intent.putParcelableArrayListExtra("SIGHTS_LIST", sights);
+                        startActivity(intent);
+                        finish();
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {}
+                });
+            }
+        });
+
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -131,26 +154,26 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
                 // Step 3.2. Set a new path (with name User) for storing data inside the root node.
                 reference = rootNode.getReference("Sights");
 
-                Sight s1 = new Sight("Acropolis", "Athens",37.970833, 23.726110);
-                Sight s2 = new Sight("Knossos", "Crete",35.2921088316,  25.1578927018);
-                Sight s3 = new Sight("Meteora", "Kalampaka",39.6999972,  21.6166642);
-                Sight s4 = new Sight("Delos", "Cyclades",37.389331776,  25.269332256);
-                Sight s5 = new Sight("Navagio", "Zakynthos",37.854663248, 20.622664176);
-                Sight s6 = new Sight("Temple of Olympian Zeus", "Athens",37.9682861268, 23.7265104273);
-                Sight s7 = new Sight("Mykines", "Argolida",37.7195776, 22.7457762);
-                Sight s8 = new Sight("Kokkini Paralia", "Santorini",36.34891, 25.3939);
-                Sight s9 = new Sight("Panathenaic Stadium", "Athens",37.967662796, 23.737997048);
-                Sight s10 = new Sight("Lykavitos", "Athens",37.983551, 23.743130);
-                Sight s11 = new Sight("Akrotiri", "Santorini",36.35083193, 25.402165058);
-                Sight s12 = new Sight("Elafonissi Beach", "Crete",35.268165594, 23.526164562);
-                Sight s13 = new Sight("Samariá Gorge", "Crete",35.269332256, 23.956829506);
-                Sight s14 = new Sight("Melissani Cave", "Kefalonia",38.25416565, 20.62083085);
-                Sight s15 = new Sight("Porto Katsiki", "Lefkada",38.601497594, 20.542997828);
-                Sight s16 = new Sight("Caves of Diros", "Peloponnisos",36.638684536664584, 22.380683759374538);
-                Sight s17 = new Sight("Fortress of Palamidi", "Navplio",37.56155384736494, 22.804848866157553);
-                Sight s18 = new Sight("Archaio Theatro Asklipieiou Epidavrou", "Peloponnisos",37.60077618554391, 23.07831424676064);
-                Sight s19 = new Sight("Costa Navarino", "Kalamata",36.99661050323303, 21.650677981477152);
-                Sight s20 = new Sight("Acrocorinth", "Korinthos",37.891177720167995, 22.87006218460847);
+                Sight s1 = new Sight("Acropolis", "Athens",37.970833, 23.726110, R.drawable.acropolis);
+                Sight s2 = new Sight("Knossos", "Crete",35.2921088316,  25.1578927018, R.drawable.knossos);
+                Sight s3 = new Sight("Meteora", "Kalampaka",39.6999972,  21.6166642, R.drawable.meteora);
+                Sight s4 = new Sight("Delos", "Cyclades",37.389331776,  25.269332256, R.drawable.delos);
+                Sight s5 = new Sight("Navagio", "Zakynthos",37.854663248, 20.622664176, R.drawable.navagio);
+                Sight s6 = new Sight("Temple of Olympian Zeus", "Athens",37.9682861268, 23.7265104273, R.drawable.temple_olympian_zeus);
+                Sight s7 = new Sight("Mykines", "Argolida",37.7195776, 22.7457762,0);
+                Sight s8 = new Sight("Kokkini Paralia", "Santorini",36.34891, 25.3939,0);
+                Sight s9 = new Sight("Panathenaic Stadium", "Athens",37.967662796, 23.737997048,0);
+                Sight s10 = new Sight("Lykavitos", "Athens",37.983551, 23.743130,0);
+                Sight s11 = new Sight("Akrotiri", "Santorini",36.35083193, 25.402165058,0);
+                Sight s12 = new Sight("Elafonissi Beach", "Crete",35.268165594, 23.526164562,0);
+                Sight s13 = new Sight("Samariá Gorge", "Crete",35.269332256, 23.956829506,0);
+                Sight s14 = new Sight("Melissani Cave", "Kefalonia",38.25416565, 20.62083085,0);
+                Sight s15 = new Sight("Porto Katsiki", "Lefkada",38.601497594, 20.542997828,0);
+                Sight s16 = new Sight("Caves of Diros", "Peloponnisos",36.638684536664584, 22.380683759374538,0);
+                Sight s17 = new Sight("Fortress of Palamidi", "Navplio",37.56155384736494, 22.804848866157553,0);
+                Sight s18 = new Sight("Archaio Theatro Asklipieiou Epidavrou", "Peloponnisos",37.60077618554391, 23.07831424676064,0);
+                Sight s19 = new Sight("Costa Navarino", "Kalamata",36.99661050323303, 21.650677981477152,0);
+                Sight s20 = new Sight("Acrocorinth", "Korinthos",37.891177720167995, 22.87006218460847, R.drawable.acrocorinth);
 
                 sights.add(s1); sights.add(s2); sights.add(s3);
                 sights.add(s4); sights.add(s5); sights.add(s6);
@@ -181,9 +204,9 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         myLocation.setLatitude(myLat);
         myLocation.setLongitude(myLong);
 
-        Toast.makeText(SightsActivity.this,
+        /*Toast.makeText(SightsActivity.this,
                 "Latitude: " + myLat + " | Longitude: " + myLong,
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_SHORT).show();*/
 
         // Compute & save to the proper list all the distances from my location to all sights.
         for (Sight sight : sights){

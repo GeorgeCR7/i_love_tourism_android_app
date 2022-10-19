@@ -7,14 +7,16 @@ public class Sight implements Parcelable {
 
     private String name, city;
     private double longitude, latitude;
+    private int sightImg;
 
     public Sight() {}
 
-    public Sight(String name, String city, double latitude, double longitude) {
+    public Sight(String name, String city, double latitude, double longitude, int sightImg) {
         this.name = name;
         this.city = city;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.sightImg = sightImg;
     }
 
     protected Sight(Parcel in) {
@@ -22,6 +24,7 @@ public class Sight implements Parcelable {
         city = in.readString();
         longitude = in.readDouble();
         latitude = in.readDouble();
+        sightImg = in.readInt();
     }
 
     public static final Creator<Sight> CREATOR = new Creator<Sight>() {
@@ -68,6 +71,14 @@ public class Sight implements Parcelable {
         this.latitude = latitude;
     }
 
+    public int getSightImg() {
+        return sightImg;
+    }
+
+    public void setSightImg(int sightImg) {
+        this.sightImg = sightImg;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -79,5 +90,6 @@ public class Sight implements Parcelable {
         parcel.writeString(city);
         parcel.writeDouble(longitude);
         parcel.writeDouble(latitude);
+        parcel.writeInt(sightImg);
     }
 }

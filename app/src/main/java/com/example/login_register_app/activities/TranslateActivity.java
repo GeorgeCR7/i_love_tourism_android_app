@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class TranslateActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Button btnChangeLang, btnBackTranslate;
+    Button btnBackTranslate;
 
     TextView txtTranslateOrgLabel, txtTranslateTo, txtTranslateResultLabel;
     TextView txtLanguageLabel, txtLanguageValue;
@@ -44,7 +44,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
 
-        btnChangeLang = findViewById(R.id.btnChangeLang);
         btnBackTranslate = findViewById(R.id.btnBackTranslate);
 
         txtTranslateOrgLabel = findViewById(R.id.txtTranslateOrgLabel);
@@ -158,14 +157,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                     Toast.LENGTH_SHORT).show();
         }*/
 
-        btnChangeLang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                startActivity(getIntent());
-            }
-        });
-
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -196,19 +187,16 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                         // translate text to greek...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        txtTranslateResult.clearComposingText();
                         translateText("el", myList.get(1));
                     } else if (selectedLang.equals(allLanguages[2])){
                         // translate text to german...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        txtTranslateResult.clearComposingText();
                         translateText("de", myList.get(1));
                     } else {
                         // translate text to spanish...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        txtTranslateResult.clearComposingText();
                         translateText("es", myList.get(1));
                     }
                 } else {
@@ -216,19 +204,16 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                         // translate text to greek...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        //identifyLanguage(myList.get(1));
                         translateText("el", myList.get(1));
                     } else if (selectedLang.equals(allLanguages[2])){
                         // translate text to german...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        //identifyLanguage(myList.get(1));
                         translateText("de", myList.get(1));
                     } else {
                         // translate text to spanish...
                         txtTranslateResultLabel.setVisibility(View.VISIBLE);
                         txtTranslateResult.setVisibility(View.VISIBLE);
-                        //identifyLanguage(myList.get(1));
                         translateText("es", myList.get(1));
                     }
                 }
@@ -241,55 +226,54 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     private void translateText(String language, String text) {
 
-        switch (language){
-            case "el":
-                if (boolEl){
-                    translatorEl.translate(text)
-                            .addOnSuccessListener(new OnSuccessListener<String>() {
-                                @Override
-                                public void onSuccess(String s) {
-                                    txtTranslateResult.setText(s);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    txtTranslateResult.setText(e.toString());
-                                }
-                            });
-                }
-            case "de":
-                if (boolDe){
-                    translatorDe.translate(text)
-                            .addOnSuccessListener(new OnSuccessListener<String>() {
-                                @Override
-                                public void onSuccess(String s) {
-                                    txtTranslateResult.setText(s);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    txtTranslateResult.setText(e.toString());
-                                }
-                            });
-                }
-            case "es":
-                if (boolEs){
-                    translatorEs.translate(text)
-                            .addOnSuccessListener(new OnSuccessListener<String>() {
-                                @Override
-                                public void onSuccess(String s) {
-                                    txtTranslateResult.setText(s);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    txtTranslateResult.setText(e.toString());
-                                }
-                            });
-                }
+        if (language.equals("el")){
+            if (boolEl){
+                translatorEl.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (language.equals("de")){
+            if (boolDe){
+                translatorDe.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (language.equals("es")){
+            if (boolEs){
+                translatorEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
         }
     }
 
