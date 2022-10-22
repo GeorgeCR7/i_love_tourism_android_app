@@ -33,12 +33,10 @@ public class SightsListAdapter extends ArrayAdapter<Sight> {
 
         ImageView sightImg = convertView.findViewById(R.id.sightImage);
         TextView sightName = convertView.findViewById(R.id.txtSightName);
-        TextView sightCity = convertView.findViewById(R.id.txtSightCity);
 
         sightImg.setImageResource(sight.getSightImg());
         sightName.setText(sight.getName());
-        sightCity.setText(sight.getCity());
 
-        return super.getView(position, convertView, parent);
+        return convertView;
     }
 }

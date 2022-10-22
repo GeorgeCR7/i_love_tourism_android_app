@@ -67,6 +67,10 @@
     <string name="nearest_sight">Κοντινότερο αξιοθέατο</string>
     <string name="back">Πίσω</string>
 
+    <!-- One Sight Activity. -->
+    <string name="sight_name">Όνομα αξιοθέατου</string>
+    <string name="city">Πόλη</string>
+
     <!-- Language Activity. -->
     <string name="select_your_language">Επέλεξε την γλώσσα σού!</string>
     <string name="english">Αγγλικά</string>

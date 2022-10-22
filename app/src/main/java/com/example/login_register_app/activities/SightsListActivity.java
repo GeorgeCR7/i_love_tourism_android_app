@@ -1,5 +1,6 @@
 package com.example.login_register_app.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -32,8 +33,14 @@ public class SightsListActivity extends AppCompatActivity {
         binding.listViewSights.setClickable(true);
         binding.listViewSights.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Intent intent = new Intent(SightsListActivity.this, OneSightActivity.class);
+                intent.putExtra("SIGHT_NAME", sights.get(position).getName());
+                intent.putExtra("SIGHT_CITY", sights.get(position).getCity());
+                intent.putExtra("SIGHT_IMG", sights.get(position).getSightImg());
+                startActivity(intent);
+                finish();
             }
         });
     }

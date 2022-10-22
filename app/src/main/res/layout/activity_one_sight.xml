@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D4E7F7"
+    tools:context=".activities.OneSightActivity">
+
+
+    <ImageView
+        android:id="@+id/imgOneSight"
+        android:layout_width="297dp"
+        android:layout_height="306dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/txtOneSightNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/sight_name"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgOneSight"
+        app:layout_constraintStart_toStartOf="@+id/imgOneSight"
+        app:layout_constraintTop_toBottomOf="@+id/imgOneSight" />
+
+    <TextView
+        android:id="@+id/txtOneSightNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="#13487C"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtOneSightNameLabel"
+        app:layout_constraintStart_toStartOf="@+id/txtOneSightNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtOneSightNameLabel" />
+
+    <TextView
+        android:id="@+id/txtOneSightCityLabel"
+        android:layout_width="81dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="@string/city"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtOneSightNameValue"
+        app:layout_constraintStart_toStartOf="@+id/txtOneSightNameValue"
+        app:layout_constraintTop_toBottomOf="@+id/txtOneSightNameValue" />
+
+    <TextView
+        android:id="@+id/txtOneSightCityValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="#13487C"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtOneSightCityLabel"
+        app:layout_constraintStart_toStartOf="@+id/txtOneSightCityLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtOneSightCityLabel" />
+
+    <Button
+        android:id="@+id/btnBackOneSight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#D33A3A"
+        android:gravity="center"
+        android:text="@string/back"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

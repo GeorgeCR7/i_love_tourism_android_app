@@ -67,6 +67,10 @@
     <string name="nearest_sight">Nächste Sehenswürdigkeit</string>
     <string name="back">Der Rücken</string>
 
+    <!-- One Sight Activity. -->
+    <string name="sight_name">Sehenswürdigkeitsname</string>
+    <string name="city">Stadt</string>
+
     <!-- Language Activity. -->
     <string name="select_your_language">Wähle deine Sprache!</string>
     <string name="english">Englisch</string>
@@ -94,5 +98,6 @@
     <string name="country">Land</string>
     <string name="save">Speichern</string>
     <string name="update_user_profile">Ihr Profil wurde erfolgreich aktualisiert!</string>
+
 
 </resources>

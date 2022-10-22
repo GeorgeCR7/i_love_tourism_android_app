@@ -70,6 +70,8 @@
     <string name="thursday">Thursday</string>
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
+    <string name="sight_name">Sight name</string>
+    <string name="city">City</string>
 
     <string-array name="spn_langs">
         <item></item>

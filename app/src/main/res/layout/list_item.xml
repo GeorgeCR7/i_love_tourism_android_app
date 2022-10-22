@@ -19,8 +19,7 @@
                 android:id="@+id/sightImage"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginStart="20dp"
-                android:src="@drawable/knossos"/>
+                android:layout_marginStart="20dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -32,17 +31,10 @@
                     android:id="@+id/txtSightName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="George"
+                    android:text=""
                     android:textColor="@color/black"
-                    android:textSize="26sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtSightCity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Hi, how are you?" />
 
             </LinearLayout>
             

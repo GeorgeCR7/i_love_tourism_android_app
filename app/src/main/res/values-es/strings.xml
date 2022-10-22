@@ -67,6 +67,10 @@
     <string name="nearest_sight">Vista más cercana</string>
     <string name="back">Atrás</string>
 
+    <!-- One Sight Activity. -->
+    <string name="sight_name">Nombre de la vista</string>
+    <string name="city">Ciudad</string>
+
     <!-- Language Activity. -->
     <string name="select_your_language">¡Elige tu idioma!</string>
     <string name="english">Ιnglés</string>
