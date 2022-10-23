@@ -84,6 +84,7 @@
     <string name="text_language">Idioma del texto</string>
     <string name="translated_text">Texto traducido</string>
     <string name="change_language">Cambiar idioma</string>
+    <string name="lang_no_support">Idioma no admitido</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Griego</item>

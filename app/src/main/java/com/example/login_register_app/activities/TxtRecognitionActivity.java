@@ -155,14 +155,8 @@ public class TxtRecognitionActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(String languageCode) {
                         if (languageCode.equals("und")) {
-                            Toast.makeText(TxtRecognitionActivity.this,
-                                    "Can't identify language.",
-                                    Toast.LENGTH_SHORT).show();
                             txtRecList.add(languageCode);
                         } else {
-                            Toast.makeText(TxtRecognitionActivity.this,
-                                    "Language: " + languageCode,
-                                    Toast.LENGTH_SHORT).show();
                             txtRecList.add(languageCode);
                         }
                     }

@@ -84,6 +84,7 @@
     <string name="text_language">Γλώσσα κειμένου</string>
     <string name="translated_text">Μεταφρασμένο κείμενο</string>
     <string name="change_language">Αλλαγή γλώσσας</string>
+    <string name="lang_no_support">Η γλώσσα δεν υποστηρίζεται</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Ελληνικά</item>

@@ -142,6 +142,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         myList = new ArrayList<>();
         myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
         txtTranslateOrgValue.setText(myList.get(1));
+        txtLanguageValue.setText(setLanguageValue(myList.get(2)));
 
         /*if(myList.get(0).equals("img_label_list")) {
             Toast.makeText(TranslateActivity.this,
@@ -224,9 +225,20 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {}
 
-    private void translateText(String language, String text) {
+    private void createTranslator(String langCode) {
 
-        if (language.equals("el")){
+        DownloadConditions downloadConditions = new DownloadConditions.Builder()
+                .requireWifi()
+                .build();
+
+        switch (langCode){
+
+        }
+    }
+
+    private void translateText(String langCode, String text) {
+
+        if (langCode.equals("el")){
             if (boolEl){
                 translatorEl.translate(text)
                         .addOnSuccessListener(new OnSuccessListener<String>() {
@@ -242,7 +254,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                             }
                         });
             }
-        } else if (language.equals("de")){
+        } else if (langCode.equals("de")){
             if (boolDe){
                 translatorDe.translate(text)
                         .addOnSuccessListener(new OnSuccessListener<String>() {
@@ -258,7 +270,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                             }
                         });
             }
-        } else if (language.equals("es")){
+        } else if (langCode.equals("es")){
             if (boolEs){
                 translatorEs.translate(text)
                         .addOnSuccessListener(new OnSuccessListener<String>() {
@@ -275,6 +287,26 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                         });
             }
         }
+    }
+
+    private String setLanguageValue(String langCode){
+
+        String langLabel = "";
+
+        if(langCode.contains("en")){
+            langLabel = getResources().getString(R.string.english);
+        } else if(langCode.contains("de")) {
+            langLabel = getResources().getString(R.string.german);
+        } else if(langCode.contains("el")){
+            langLabel = getResources().getString(R.string.greek);
+        } else if(langCode.contains("es")){
+            langLabel = getResources().getString(R.string.spanish);
+        } else {
+            langLabel = getResources().getString(R.string.lang_no_support);
+        }
+
+        return langLabel;
+
     }
 
     /*private void identifyLanguage(String text) {
