@@ -32,7 +32,6 @@
     <string name="text_recognition">Text Recognition</string>
     <string name="sights">Sights</string>
     <string name="back">Back</string>
-    <string name="show_all_sights">Show all sights</string>
     <string name="open_map">Open map</string>
     <string name="find_your_nearest_sight">Find your nearest sight</string>
     <string name="find">Find</string>
@@ -72,7 +71,11 @@
     <string name="saturday">Saturday</string>
     <string name="sight_name">Sight name</string>
     <string name="city">City</string>
-    <string name="lang_no_support">Language not supported</string>
+    <string name="lang_no_support">Language not supported by the application</string>
+    <string name="view_sights_in_format">View sights in format</string>
+    <string name="open_list">Open list</string>
+    <string name="map">Map</string>
+    <string name="list">List</string>
 
     <string-array name="spn_langs">
         <item></item>

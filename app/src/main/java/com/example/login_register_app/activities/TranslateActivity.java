@@ -303,6 +303,8 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
             langLabel = getResources().getString(R.string.spanish);
         } else {
             langLabel = getResources().getString(R.string.lang_no_support);
+            txtTranslateTo.setVisibility(View.INVISIBLE);
+            spnTranslateTxt.setVisibility(View.INVISIBLE);
         }
 
         return langLabel;

@@ -60,8 +60,11 @@
     <string name="image_detect_no_txt">La imagen no contiene texto</string>
 
     <!-- Sights Activity.-->
-    <string name="show_all_sights">Mostrar todas las vistas</string>
+    <string name="view_sights_in_format">Ver vistas en formato</string>
     <string name="open_map">Abrir mapa</string>
+    <string name="open_list">Lista abierta</string>
+    <string name="map">Mapa</string>
+    <string name="list">Lista</string>
     <string name="find_your_nearest_sight">Encuentra tu vista más cercana</string>
     <string name="find">Encontrar</string>
     <string name="nearest_sight">Vista más cercana</string>
@@ -84,7 +87,7 @@
     <string name="text_language">Idioma del texto</string>
     <string name="translated_text">Texto traducido</string>
     <string name="change_language">Cambiar idioma</string>
-    <string name="lang_no_support">Idioma no admitido</string>
+    <string name="lang_no_support">El idioma no es compatible con la aplicación.</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Griego</item>
@@ -99,5 +102,6 @@
     <string name="country">País</string>
     <string name="save">Ahorrar</string>
     <string name="update_user_profile">¡Tu perfil se actualizó con éxito!</string>
+
 
 </resources>

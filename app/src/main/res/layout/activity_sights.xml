@@ -23,14 +23,14 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/txtShowAllSights"
+        android:id="@+id/txtViewSightsFormat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="@string/show_all_sights"
-        android:textColor="#090909"
-        android:textSize="20sp"
+        android:text="@string/view_sights_in_format"
+        android:textColor="#000000"
+        android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,25 +40,26 @@
         android:id="@+id/btnMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#235B91"
         android:gravity="center"
         android:text="@string/open_map"
         android:textAllCaps="false"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/txtShowAllSights"
-        app:layout_constraintStart_toStartOf="@+id/txtShowAllSights"
-        app:layout_constraintTop_toBottomOf="@+id/txtShowAllSights" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchBtnList" />
 
     <TextView
         android:id="@+id/txtFindNearestSight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="85dp"
         android:gravity="center"
         android:text="@string/find_your_nearest_sight"
-        android:textColor="#090909"
-        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btnMap"
         app:layout_constraintStart_toStartOf="@+id/btnMap"
@@ -68,7 +69,7 @@
         android:id="@+id/btnFind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="#235B91"
         android:gravity="center"
         android:text="@string/find"
@@ -82,40 +83,70 @@
         android:id="@+id/txtNearestSightLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:text="@string/nearest_sight"
         android:textColor="#090909"
-        android:textSize="25sp"
+        android:textSize="23sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/txtNearestSightResult"
         app:layout_constraintEnd_toEndOf="@+id/btnFind"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="@+id/btnFind" />
+        app:layout_constraintStart_toStartOf="@+id/btnFind"
+        app:layout_constraintTop_toBottomOf="@+id/btnFind" />
 
     <TextView
         android:id="@+id/txtNearestSightResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text=""
         android:textColor="#0E5E12"
-        android:textSize="24sp"
+        android:textSize="21sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="@+id/txtNearestSightLabel"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="@+id/txtNearestSightLabel" />
+        app:layout_constraintStart_toStartOf="@+id/txtNearestSightLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtNearestSightLabel" />
 
     <Button
         android:id="@+id/btnSightsList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="List"
-        app:layout_constraintEnd_toEndOf="@+id/btnFind"
-        app:layout_constraintStart_toStartOf="@+id/btnFind"
-        app:layout_constraintTop_toBottomOf="@+id/btnFind" />
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#235B91"
+        android:gravity="center"
+        android:text="@string/open_list"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchBtnList"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switchBtnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/map"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtViewSightsFormat"
+        app:layout_constraintStart_toStartOf="@+id/txtViewSightsFormat"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewSightsFormat"
+        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck" />
+
+    <Switch
+        android:id="@+id/switchBtnList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/list"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/switchBtnMap"
+        app:layout_constraintStart_toStartOf="@+id/switchBtnMap"
+        app:layout_constraintTop_toBottomOf="@+id/switchBtnMap"
+        tools:ignore="TouchTargetSizeCheck,UseSwitchCompatOrMaterialXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

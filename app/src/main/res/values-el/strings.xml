@@ -60,8 +60,11 @@
     <string name="image_detect_no_txt">Η εικόνα δεν περιέχει κείμενο</string>
 
     <!-- Sights Activity. -->
-    <string name="show_all_sights">Προβολή όλων των αξιοθέατων</string>
-    <string name="open_map">Άνοιγμα χάρτη</string>
+    <string name="view_sights_in_format">Προβολή αξιοθεάτων σε μορφή</string>
+    <string name="open_map">Προβολή χάρτη</string>
+    <string name="open_list">Προβολή λίστας</string>
+    <string name="map">Χάρτης</string>
+    <string name="list">Λίστα</string>
     <string name="find_your_nearest_sight">Εύρεση κοντινότερου αξιοθέατου</string>
     <string name="find">Αναζήτηση</string>
     <string name="nearest_sight">Κοντινότερο αξιοθέατο</string>
@@ -84,7 +87,7 @@
     <string name="text_language">Γλώσσα κειμένου</string>
     <string name="translated_text">Μεταφρασμένο κείμενο</string>
     <string name="change_language">Αλλαγή γλώσσας</string>
-    <string name="lang_no_support">Η γλώσσα δεν υποστηρίζεται</string>
+    <string name="lang_no_support">Η γλώσσα δεν υποστηρίζεται από την εφαρμογή</string>
     <string-array name="spn_langs">
         <item></item>
         <item>Ελληνικά</item>

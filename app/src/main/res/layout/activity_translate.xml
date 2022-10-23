@@ -123,7 +123,7 @@
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:textColor="#13487C"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txtLanguageLabel"
         app:layout_constraintStart_toStartOf="@+id/txtLanguageLabel"

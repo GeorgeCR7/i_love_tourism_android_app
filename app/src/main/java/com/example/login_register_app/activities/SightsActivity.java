@@ -11,6 +11,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,8 @@ import java.util.ArrayList;
 public class SightsActivity extends AppCompatActivity implements LocationListener {
 
     Button btnMap, btnSightsList, btnFind, btnBack;
+
+    Switch switchBtnMap, switchBtnList;
 
     TextView txtNearestSightLabel, txtNearestSightResult;
 
@@ -55,9 +59,15 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         sights = new ArrayList<>();
 
         btnMap = findViewById(R.id.btnMap);
+        btnMap.setVisibility(View.INVISIBLE);
         btnSightsList = findViewById(R.id.btnSightsList);
+        btnSightsList.setVisibility(View.INVISIBLE);
+
         btnFind = findViewById(R.id.btnFind);
         btnBack = findViewById(R.id.btnBack);
+
+        switchBtnMap = findViewById(R.id.switchBtnMap);
+        switchBtnList = findViewById(R.id.switchBtnList);
 
         txtNearestSightLabel= findViewById(R.id.txtNearestSightLabel);
         txtNearestSightLabel.setVisibility(View.INVISIBLE);
@@ -76,6 +86,24 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         //Get my current location via GPS.
         // TODO: This function is not working, find another solution.
         getMyLocation();
+
+        switchBtnMap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                switchBtnList.setChecked(!switchBtnMap.isChecked());
+                btnMap.setVisibility(View.VISIBLE);
+                btnSightsList.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        switchBtnList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                switchBtnMap.setChecked(!switchBtnList.isChecked());
+                btnSightsList.setVisibility(View.VISIBLE);
+                btnMap.setVisibility(View.INVISIBLE);
+            }
+        });
 
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
