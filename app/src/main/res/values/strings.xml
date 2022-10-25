@@ -77,11 +77,33 @@
     <string name="map">Map</string>
     <string name="list">List</string>
 
-    <string-array name="spn_langs">
+
+    <string-array name="langs_noEn">
         <item></item>
         <item>Greek</item>
         <item>German</item>
         <item>Spanish</item>
+    </string-array>
+    <string-array name="langs_noEl">
+        <item></item>
+        <item>English</item>
+        <item>German</item>
+        <item>Spanish</item>
+    </string-array>
+    <string-array name="langs_noDe">
+        <item></item>
+        <item>Greek</item>
+        <item>English</item>
+        <item>Spanish</item>
+    </string-array>
+    <string-array name="langs_noEs">
+        <item></item>
+        <item>Greek</item>
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="langs_no">
+        <item></item>
     </string-array>
 
 </resources>

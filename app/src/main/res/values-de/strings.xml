@@ -88,11 +88,32 @@
     <string name="translated_text">Übersetzter Text</string>
     <string name="change_language">Sprache ändern</string>
     <string name="lang_no_support">Die Sprache wird von der Anwendung nicht unterstützt</string>
-    <string-array name="spn_langs">
+    <string-array name="langs_noEn">
         <item></item>
-        <item>Griechisch</item>
-        <item>Deutsch</item>
-        <item>Spanisch</item>
+        <item>Greek</item>
+        <item>German</item>
+        <item>Spanish</item>
+    </string-array>
+    <string-array name="langs_noEl">
+        <item></item>
+        <item>English</item>
+        <item>German</item>
+        <item>Spanish</item>
+    </string-array>
+    <string-array name="langs_noDe">
+        <item></item>
+        <item>Greek</item>
+        <item>English</item>
+        <item>Spanish</item>
+    </string-array>
+    <string-array name="langs_noEs">
+        <item></item>
+        <item>Greek</item>
+        <item>English</item>
+        <item>German</item>
+    </string-array>
+    <string-array name="langs_no">
+        <item></item>
     </string-array>
 
     <!-- Profile Activity. -->

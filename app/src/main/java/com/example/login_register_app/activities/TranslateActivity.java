@@ -36,13 +36,19 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     private ArrayList<String> myList;
 
-    private Translator translatorEl, translatorDe, translatorEs;
-    private Boolean boolEl = false, boolDe = false, boolEs = false;
+    private Translator translatorEn, translatorEl, translatorDe, translatorEs;
+    private Boolean boolEn = false, boolEl = false, boolDe = false, boolEs = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_translate);
+
+        myList = new ArrayList<>();
+        myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
+
+        spnTranslateTxt = findViewById(R.id.spnTranslateTxt);
+        createSpinner(myList.get(2));
 
         btnBackTranslate = findViewById(R.id.btnBackTranslate);
 
@@ -54,6 +60,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         txtLanguageLabel = findViewById(R.id.txtLanguageLabel);
         txtLanguageLabel.setPaintFlags(txtLanguageLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         txtLanguageValue = findViewById(R.id.txtLanguageValue);
+        txtLanguageValue.setText(setLanguageValue(myList.get(2)));
 
         txtTranslateResultLabel = findViewById(R.id.txtTranslateResultLabel);
         txtTranslateResultLabel.setPaintFlags(txtTranslateResultLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -63,13 +70,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         txtTranslateResult.setVisibility(View.INVISIBLE);
 
         txtTranslateOrgValue = findViewById(R.id.txtTranslateOrgValue);
-
-        spnTranslateTxt = findViewById(R.id.spnTranslateTxt);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter
-                .createFromResource(this, R.array.spn_langs, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnTranslateTxt.setAdapter(adapter);
-        spnTranslateTxt.setOnItemSelectedListener(this);
+        txtTranslateOrgValue.setText(myList.get(1));
 
         TranslatorOptions translatorOptionsEl =
                 new TranslatorOptions.Builder()
@@ -138,12 +139,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                     }
                 });
 
-
-        myList = new ArrayList<>();
-        myList = getIntent().getStringArrayListExtra("TRANSLATE_ACTV");
-        txtTranslateOrgValue.setText(myList.get(1));
-        txtLanguageValue.setText(setLanguageValue(myList.get(2)));
-
         /*if(myList.get(0).equals("img_label_list")) {
             Toast.makeText(TranslateActivity.this,
                     "I came from img label activity." +
@@ -179,7 +174,11 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         // Get the selected language from the spinner.
         String selectedLang = adapterView.getItemAtPosition(position).toString();
         Bundle extras = getIntent().getExtras();
-        String[] allLanguages = getResources().getStringArray(R.array.spn_langs);
+        String[] allLanguages =
+                { getResources().getString(R.string.english),
+                getResources().getString(R.string.greek),
+                getResources().getString(R.string.german),
+                getResources().getString(R.string.spanish) };
 
         if (!selectedLang.equals("")){
             if (extras!= null){
@@ -225,15 +224,32 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {}
 
+    public void createSpinner(String langCode) {
+
+        ArrayAdapter<CharSequence> adapter = null;
+
+        if(langCode.contains("en")){
+            adapter = ArrayAdapter.createFromResource(this, R.array.langs_noEn, android.R.layout.simple_spinner_item);
+        } else if(langCode.contains("de")) {
+            adapter = ArrayAdapter.createFromResource(this, R.array.langs_noDe, android.R.layout.simple_spinner_item);
+        } else if(langCode.contains("el")){
+            adapter = ArrayAdapter.createFromResource(this, R.array.langs_noEl, android.R.layout.simple_spinner_item);
+        } else if(langCode.contains("es")){
+            adapter = ArrayAdapter.createFromResource(this, R.array.langs_noEs, android.R.layout.simple_spinner_item);
+        } else {
+            adapter = ArrayAdapter.createFromResource(this, R.array.langs_no, android.R.layout.simple_spinner_item);
+        }
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnTranslateTxt.setAdapter(adapter);
+        spnTranslateTxt.setOnItemSelectedListener(this);
+    }
+
     private void createTranslator(String langCode) {
 
         DownloadConditions downloadConditions = new DownloadConditions.Builder()
                 .requireWifi()
                 .build();
 
-        switch (langCode){
-
-        }
     }
 
     private void translateText(String langCode, String text) {
