@@ -1,8 +1,5 @@
 package com.example.login_register_app.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -13,6 +10,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login_register_app.R;
 
@@ -67,7 +67,12 @@ public class LanguageActivity extends AppCompatActivity {
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LanguageActivity.this, LoginActivity.class);
+                Intent intent = null;
+                if (getIntent().getExtras().getString("LANG_ACTV").equals("login")) {
+                    intent = new Intent(LanguageActivity.this, LoginActivity.class);
+                } else {
+                    intent = new Intent(LanguageActivity.this, RegisterActivity.class);
+                }
                 startActivity(intent);
             }
         });

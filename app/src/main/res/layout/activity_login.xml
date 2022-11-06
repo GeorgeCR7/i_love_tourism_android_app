@@ -100,4 +100,18 @@
         app:layout_constraintStart_toStartOf="@+id/btnGoRegister"
         tools:ignore="TouchTargetSizeCheck" />
 
+    <TextView
+        android:id="@+id/txtForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/forgot_your_password"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoRegister"
+        app:layout_constraintStart_toStartOf="@+id/btnGoRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoRegister" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

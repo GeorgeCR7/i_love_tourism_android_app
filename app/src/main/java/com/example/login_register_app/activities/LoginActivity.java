@@ -1,14 +1,15 @@
 package com.example.login_register_app.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.login_register_app.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,9 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.regex.Pattern;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText email, password;
+
+    TextView txtForgotPassword;
+
     Button btnLogin, btnGoRegister, btnLanguage;
 
     FirebaseAuth mAuth;
@@ -30,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
 
         email = findViewById(R.id.emailLogin);
         password = findViewById(R.id.passwordLogin);
+
+        txtForgotPassword = findViewById(R.id.txtForgotPassword);
+
         btnLogin = findViewById(R.id.btnLogin);
         btnGoRegister = findViewById(R.id.btnGoRegister);
         btnLanguage = findViewById(R.id.btnLanguage);
@@ -52,10 +61,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        txtForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnLanguage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, LanguageActivity.class);
+                intent.putExtra("LANG_ACTV","login");
                 startActivity(intent);
                 finish();
             }
@@ -69,6 +88,10 @@ public class LoginActivity extends AppCompatActivity {
 
         if (strEmail.isEmpty()) {
             email.setError(getResources().getString(R.string.email_empty));
+            email.requestFocus();
+            return;
+        } else if (!isEmailValid(strEmail)) {
+            email.setError(getResources().getString(R.string.email_not_valid));
             email.requestFocus();
             return;
         } else if (strPassword.isEmpty()){
@@ -94,5 +117,19 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    private static boolean isEmailValid (String email) {
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
     }
 }

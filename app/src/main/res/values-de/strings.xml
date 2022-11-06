@@ -14,6 +14,7 @@
     <string name="log_in_error">Login Fehler </string>
     <string name="email_empty">Email darf nicht leer sein!</string>
     <string name="password_empty">Passwort kann nicht leer sein!</string>
+    <string name="forgot_your_password">Haben Sie Ihr Passwort vergessen?</string>
 
     <!-- Register Activity. -->
     <string name="already_a_user_login_here">Bereits Benutzer? Jetzt einloggen!</string>
@@ -29,6 +30,11 @@
     <string name="email_not_valid">Email ist ungültig!</string>
     <string name="password_length_error">Das Passwort muss mindestens aus 6 Zeichen bestehen!</string>
     <string name="password_confirm">Passwort bestätigen bitte!</string>
+
+    <!-- Forgot Password Activity. -->
+    <string name="enter_the_email_in_the_application">Geben Sie die E-Mail-Adresse in der Anwendung ein</string>
+    <string name="recover">Genesen</string>
+    <string name="check_inbox_recover">Bitte überprüfen Sie Ihren Posteingang auf den Link zum Zurücksetzen des Passworts.</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Bildbeschriftung</string>

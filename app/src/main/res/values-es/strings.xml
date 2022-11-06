@@ -14,6 +14,7 @@
     <string name="log_in_error">Error de inicio de sesión </string>
     <string name="email_empty">¡El correo electrónico no puede estar vacío!</string>
     <string name="password_empty">¡La contraseña no puede estar vacía!</string>
+    <string name="forgot_your_password">¿Olvidaste tu contraseña?</string>
 
     <!-- Register Activity. -->
     <string name="already_a_user_login_here">¿Ya eres usuario? ¡Inicia sesión ahora!</string>
@@ -29,6 +30,11 @@
     <string name="email_not_valid">¡El correo no es válido!</string>
     <string name="password_length_error">¡La contraseña debe tener al menos 6 caracteres!</string>
     <string name="password_confirm">¡Confirme la contraseña por favor!</string>
+
+    <!-- Forgot Password Activity. -->
+    <string name="enter_the_email_in_the_application">Ingresa el correo electrónico en la aplicación</string>
+    <string name="recover">Recuperar</string>
+    <string name="check_inbox_recover">Verifique su bandeja de entrada para ver el enlace de restablecimiento de contraseña.</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Etiquetado de imágenes</string>
@@ -123,6 +129,5 @@
     <string name="country">País</string>
     <string name="save">Ahorrar</string>
     <string name="update_user_profile">¡Tu perfil se actualizó con éxito!</string>
-
 
 </resources>

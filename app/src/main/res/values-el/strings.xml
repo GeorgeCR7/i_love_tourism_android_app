@@ -14,6 +14,7 @@
     <string name="log_in_error">Σφάλμα σύνδεσης </string>
     <string name="email_empty">Κένη διεύθυνση email!</string>
     <string name="password_empty">Κενό πεδίο κωδικού!</string>
+    <string name="forgot_your_password">Ξέχασες τον κωδικό σού;</string>
 
     <!-- Register Activity. -->
     <string name="already_a_user_login_here">Ήδη χρήστης; Σύνδεση τώρα!</string>
@@ -29,6 +30,11 @@
     <string name="email_not_valid">Μη έγκυρο email!</string>
     <string name="password_length_error">Ο κωδικός πρέπει να έχει τουλάχιστον 6 χαρακτήρες!</string>
     <string name="password_confirm">Επιβεβαιώστε τον κωδικό!</string>
+
+    <!-- Forgot Password Activity. -->
+    <string name="enter_the_email_in_the_application">Δώσε το email στην εφαρμογή</string>
+    <string name="recover">Ανάκτηση</string>
+    <string name="check_inbox_recover">Ελέγξτε τα εισερχόμενά σας για σύνδεσμο επαναφοράς κωδικού πρόσβασης.</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Ανανγώριση εικόνας</string>

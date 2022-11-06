@@ -76,6 +76,10 @@
     <string name="open_list">Open list</string>
     <string name="map">Map</string>
     <string name="list">List</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="enter_the_email_in_the_application">Enter the email in the application</string>
+    <string name="recover">Recover</string>
+    <string name="check_inbox_recover">Please check your inbox for password reset link.</string>
 
 
     <string-array name="langs_noEn">
