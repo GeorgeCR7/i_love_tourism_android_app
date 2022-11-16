@@ -35,6 +35,8 @@
     <string name="enter_the_email_in_the_application">Ingresa el correo electrónico en la aplicación</string>
     <string name="recover">Recuperar</string>
     <string name="check_inbox_recover">Verifique su bandeja de entrada para ver el enlace de restablecimiento de contraseña.</string>
+    <string name="warning">¡Advertencia!</string>
+    <string name="check_your_spam_folder">¡Revisa tu carpeta de spam!</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Etiquetado de imágenes</string>

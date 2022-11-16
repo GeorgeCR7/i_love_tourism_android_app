@@ -35,6 +35,8 @@
     <string name="enter_the_email_in_the_application">Δώσε το email στην εφαρμογή</string>
     <string name="recover">Ανάκτηση</string>
     <string name="check_inbox_recover">Ελέγξτε τα εισερχόμενά σας για σύνδεσμο επαναφοράς κωδικού πρόσβασης.</string>
+    <string name="warning">Προειδοποίηση!</string>
+    <string name="check_your_spam_folder">Ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας σας!</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Ανανγώριση εικόνας</string>

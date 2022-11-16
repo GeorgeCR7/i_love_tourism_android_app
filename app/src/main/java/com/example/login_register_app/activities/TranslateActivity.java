@@ -139,19 +139,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                     }
                 });
 
-        /*if(myList.get(0).equals("img_label_list")) {
-            Toast.makeText(TranslateActivity.this,
-                    "I came from img label activity." +
-                            "\nText: " + myList.get(1) + "" +
-                            "\nLang: " + myList.get(2),
-                    Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(TranslateActivity.this,
-                    "I came from txt rec activity." +
-                            "\nText: " + myList.get(1) +
-                            "\nLanguage text: " + myList.get(2),
-                    Toast.LENGTH_SHORT).show();
-        }*/
 
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +167,9 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                 getResources().getString(R.string.german),
                 getResources().getString(R.string.spanish) };
 
-        if (!selectedLang.equals("")){
+
+
+        /*if (!selectedLang.equals("")){
             if (extras!= null){
                 if (myList.get(0).equals("img_label_list")){
                     if (selectedLang.equals(allLanguages[1])){
@@ -218,7 +207,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                     }
                 }
             }
-        }
+        }*/
     }
 
     @Override
@@ -307,7 +296,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     private String setLanguageValue(String langCode){
 
-        String langLabel = "";
+        String langLabel;
 
         if(langCode.contains("en")){
             langLabel = getResources().getString(R.string.english);

@@ -35,6 +35,8 @@
     <string name="enter_the_email_in_the_application">Geben Sie die E-Mail-Adresse in der Anwendung ein</string>
     <string name="recover">Genesen</string>
     <string name="check_inbox_recover">Bitte überprüfen Sie Ihren Posteingang auf den Link zum Zurücksetzen des Passworts.</string>
+    <string name="warning">Warnung!</string>
+    <string name="check_your_spam_folder">Kontrolliere deinen Spam ordner!</string>
 
     <!-- Main Activity. -->
     <string name="image_labeling">Bildbeschriftung</string>

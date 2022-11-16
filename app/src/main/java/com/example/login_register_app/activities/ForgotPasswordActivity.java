@@ -1,10 +1,12 @@
 package com.example.login_register_app.activities;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
     EditText recoveryEmail;
 
+    TextView warningLabel, warningMessage;
+
     Button btnSendEmailRecover, btnBackForgotPass;
 
     FirebaseAuth mAuth;
@@ -31,6 +35,13 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         recoveryEmail = findViewById(R.id.recoveryEmail);
+
+        warningLabel = findViewById(R.id.warningLabel);
+        warningLabel.setPaintFlags(warningLabel.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        warningLabel.setVisibility(View.INVISIBLE);
+
+        warningMessage = findViewById(R.id.warningMessage);
+        warningMessage.setVisibility(View.INVISIBLE);
 
         btnSendEmailRecover = findViewById(R.id.btnSendEmailRecover);
         btnBackForgotPass = findViewById(R.id.btnBackForgotPass);
@@ -74,6 +85,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                         Toast.makeText(ForgotPasswordActivity.this,
                                 getResources().getString(R.string.check_inbox_recover),
                                 Toast.LENGTH_SHORT).show();
+                        recoveryEmail.getText().clear();
+                        warningLabel.setVisibility(View.VISIBLE);
+                        warningMessage.setVisibility(View.VISIBLE);
                     }
                 }
             });

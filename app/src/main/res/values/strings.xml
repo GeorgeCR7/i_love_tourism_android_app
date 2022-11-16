@@ -80,6 +80,8 @@
     <string name="enter_the_email_in_the_application">Enter the email in the application</string>
     <string name="recover">Recover</string>
     <string name="check_inbox_recover">Please check your inbox for password reset link.</string>
+    <string name="warning">Warning!</string>
+    <string name="check_your_spam_folder">Check your spam folder!</string>
 
 
     <string-array name="langs_noEn">

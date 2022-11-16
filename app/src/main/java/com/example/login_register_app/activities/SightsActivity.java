@@ -195,8 +195,8 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
                 Sight s11 = new Sight("Akrotiri", "Santorini",36.35083193, 25.402165058,R.drawable.akrotiri);
                 Sight s12 = new Sight("Elafonissi Beach", "Crete",35.268165594, 23.526164562,R.drawable.elafonissi_beach);
                 Sight s13 = new Sight("Samariá Gorge", "Crete",35.269332256, 23.956829506,R.drawable.samaria_gorge);
-                Sight s14 = new Sight("Melissani Cave", "Kefalonia",38.25416565, 20.62083085,R.drawable.melissani_cave);
-                Sight s15 = new Sight("Porto Katsiki", "Lefkada",38.601497594, 20.542997828,R.drawable.porto_katsiki);
+                Sight s14 = new Sight("Melissani Cave", "Kefalonia",38.25416565, 20.62083085, R.drawable.melissani_cave);
+                Sight s15 = new Sight("Porto Katsiki", "Lefkada",38.601497594, 20.542997828, R.drawable.porto_katsiki);
                 Sight s16 = new Sight("Caves of Diros", "Peloponnisos",36.638684536664584, 22.380683759374538,R.drawable.caves_diros);
                 Sight s17 = new Sight("Fortress of Palamidi", "Navplio",37.56155384736494, 22.804848866157553,R.drawable.fortress_palamidi);
                 Sight s18 = new Sight("Archaio Theatro Asklipieiou Epidavrou", "Peloponnisos",37.60077618554391, 23.07831424676064,R.drawable.theatro_epidauros);
