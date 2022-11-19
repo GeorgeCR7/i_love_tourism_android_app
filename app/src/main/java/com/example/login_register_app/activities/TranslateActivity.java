@@ -36,8 +36,24 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
     private ArrayList<String> myList;
 
-    private Translator translatorEn, translatorEl, translatorDe, translatorEs;
-    private Boolean boolEn = false, boolEl = false, boolDe = false, boolEs = false;
+    // Translator objects.
+    private Translator translatorEnEl, translatorEnDe, translatorEnEs;
+    private Boolean boolEnEl = false, boolEnDe = false, boolEnEs = false;
+
+    private Translator translatorElEn, translatorElDe, translatorElEs;
+    private Boolean boolElEn = false, boolElDe = false, boolElEs = false;
+
+    private Translator translatorDeEn, translatorDeEl, translatorDeEs;
+    private Boolean boolDeEn = false, boolDeEl = false, boolDeEs = false;
+
+    private Translator translatorEsEn, translatorEsEl, translatorEsDe;
+    private Boolean boolEsEn = false, boolEsEl = false, boolEsDe = false;
+
+
+
+
+    //private Translator translatorEn, translatorEl, translatorDe, translatorEs;
+    //private Boolean boolEn = false, boolEl = false, boolDe = false, boolEs = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +88,9 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         txtTranslateOrgValue = findViewById(R.id.txtTranslateOrgValue);
         txtTranslateOrgValue.setText(myList.get(1));
 
-        TranslatorOptions translatorOptionsEl =
+        createTranslators();
+
+        /*TranslatorOptions translatorOptionsEl =
                 new TranslatorOptions.Builder()
                         .setSourceLanguage(TranslateLanguage.ENGLISH)
                         .setTargetLanguage(TranslateLanguage.GREEK)
@@ -138,7 +156,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                         boolEs = false;
                     }
                 });
-
+*/
 
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,14 +179,70 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         // Get the selected language from the spinner.
         String selectedLang = adapterView.getItemAtPosition(position).toString();
         Bundle extras = getIntent().getExtras();
-        String[] allLanguages =
+
+       /* String[] allLanguages =
                 { getResources().getString(R.string.english),
                 getResources().getString(R.string.greek),
                 getResources().getString(R.string.german),
-                getResources().getString(R.string.spanish) };
+                getResources().getString(R.string.spanish) };*/
+        
+        if (!selectedLang.equals("")) {
+            if (extras != null) {
+                //createTranslator(myList.get(1), myList.get(2), selectedLang);
+                if (myList.get(2).contains("en") && selectedLang.equals(getResources().getString(R.string.greek))) {
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("en-el", myList.get(1));
+                } else if (myList.get(2).contains("en") && selectedLang.equals(getResources().getString(R.string.german))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("en-de", myList.get(1));
+                } else if (myList.get(2).contains("en") && selectedLang.equals(getResources().getString(R.string.spanish))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("en-es", myList.get(1));
 
+                } else if (myList.get(2).contains("de") && selectedLang.equals(getResources().getString(R.string.english))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("de-en", myList.get(1));
+                } else if (myList.get(2).contains("de") && selectedLang.equals(getResources().getString(R.string.greek))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("de-el", myList.get(1));
+                } else if (myList.get(2).contains("de") && selectedLang.equals(getResources().getString(R.string.spanish))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("de-es", myList.get(1));
 
+                } else if (myList.get(2).contains("el") && selectedLang.equals(getResources().getString(R.string.english))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("el-en", myList.get(1));
+                } else if (myList.get(2).contains("el") && selectedLang.equals(getResources().getString(R.string.german))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("el-de", myList.get(1));
+                } else if (myList.get(2).contains("el") && selectedLang.equals(getResources().getString(R.string.spanish))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("el-es", myList.get(1));
 
+                } else if (myList.get(2).contains("es") && selectedLang.equals(getResources().getString(R.string.english))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("es-en", myList.get(1));
+                } else if (myList.get(2).contains("es") && selectedLang.equals(getResources().getString(R.string.greek))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("es-el", myList.get(1));
+                } else if (myList.get(2).contains("es") && selectedLang.equals(getResources().getString(R.string.german))){
+                    txtTranslateResultLabel.setVisibility(View.VISIBLE);
+                    txtTranslateResult.setVisibility(View.VISIBLE);
+                    translateText("es-de", myList.get(1));
+                }
+            }
+        }
         /*if (!selectedLang.equals("")){
             if (extras!= null){
                 if (myList.get(0).equals("img_label_list")){
@@ -213,7 +287,7 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {}
 
-    public void createSpinner(String langCode) {
+    private void createSpinner(String langCode) {
 
         ArrayAdapter<CharSequence> adapter = null;
 
@@ -233,19 +307,283 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         spnTranslateTxt.setOnItemSelectedListener(this);
     }
 
-    private void createTranslator(String langCode) {
+    private void createTranslators() {
 
-        DownloadConditions downloadConditions = new DownloadConditions.Builder()
+       DownloadConditions downloadConditions = new DownloadConditions.Builder()
                 .requireWifi()
                 .build();
 
+        // English --> Greek.
+        TranslatorOptions translatorOptionsEnEl =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.ENGLISH)
+                        .setTargetLanguage(TranslateLanguage.GREEK)
+                        .build();
+        translatorEnEl = Translation.getClient(translatorOptionsEnEl);
+
+        translatorEnEl.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEnEl = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEnEl = false;
+                    }
+                });
+
+        // English --> German.
+        TranslatorOptions translatorOptionsEnDe =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.ENGLISH)
+                        .setTargetLanguage(TranslateLanguage.GERMAN)
+                        .build();
+        translatorEnDe = Translation.getClient(translatorOptionsEnDe);
+
+        translatorEnDe.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEnDe = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEnDe = false;
+                    }
+                });
+
+        // English --> Spanish.
+        TranslatorOptions translatorOptionsEnEs =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.ENGLISH)
+                        .setTargetLanguage(TranslateLanguage.SPANISH)
+                        .build();
+        translatorEnEs = Translation.getClient(translatorOptionsEnEs);
+
+        translatorEnEs.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEnEs = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEnEs = false;
+                    }
+                });
+
+        // German --> English.
+        TranslatorOptions translatorOptionsDeEn =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.GERMAN)
+                        .setTargetLanguage(TranslateLanguage.ENGLISH)
+                        .build();
+        translatorDeEn = Translation.getClient(translatorOptionsDeEn);
+
+        translatorDeEn.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolDeEn = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolDeEn = false;
+                    }
+                });
+
+        // German --> Greek.
+        TranslatorOptions translatorOptionsDeEl =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.GERMAN)
+                        .setTargetLanguage(TranslateLanguage.GREEK)
+                        .build();
+        translatorDeEl = Translation.getClient(translatorOptionsDeEl);
+
+        translatorDeEl.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolDeEl = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolDeEl = false;
+                    }
+                });
+
+        // German --> Spanish.
+        TranslatorOptions translatorOptionsDeEs =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.GERMAN)
+                        .setTargetLanguage(TranslateLanguage.SPANISH)
+                        .build();
+        translatorDeEs = Translation.getClient(translatorOptionsDeEs);
+
+        translatorDeEs.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolDeEs = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolDeEs = false;
+                    }
+                });
+
+        // Greek --> English.
+        TranslatorOptions translatorOptionsElEn =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.GREEK)
+                        .setTargetLanguage(TranslateLanguage.ENGLISH)
+                        .build();
+        translatorElEn = Translation.getClient(translatorOptionsElEn);
+
+        translatorElEn.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolElEn = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolElEn = false;
+                    }
+                });
+
+        // Greek --> German.
+        TranslatorOptions translatorOptionsElDe =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.GREEK)
+                        .setTargetLanguage(TranslateLanguage.GERMAN)
+                        .build();
+        translatorElDe = Translation.getClient(translatorOptionsElDe);
+
+        translatorElDe.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolElDe = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolElDe = false;
+                    }
+                });
+
+        // Greek --> Spanish.
+        TranslatorOptions translatorOptionsElEs =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.GREEK)
+                        .setTargetLanguage(TranslateLanguage.SPANISH)
+                        .build();
+        translatorElEs = Translation.getClient(translatorOptionsElEs);
+
+        translatorElEs.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolElEs = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolElEs = false;
+                    }
+                });
+
+
+        // Spanish --> English.
+        TranslatorOptions translatorOptionsEsEn =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.SPANISH)
+                        .setTargetLanguage(TranslateLanguage.ENGLISH)
+                        .build();
+        translatorEsEn = Translation.getClient(translatorOptionsEsEn);
+
+        translatorEsEn.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEsEn = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEsEn = false;
+                    }
+                });
+
+        // Spanish --> Greek.
+        TranslatorOptions translatorOptionsEsEl =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.SPANISH)
+                        .setTargetLanguage(TranslateLanguage.GREEK)
+                        .build();
+        translatorEsEl = Translation.getClient(translatorOptionsEsEl);
+
+        translatorEsEl.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEsEl = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEsEl = false;
+                    }
+                });
+
+        // Spanish --> German.
+        TranslatorOptions translatorOptionsEsDe =
+                new TranslatorOptions.Builder()
+                        .setSourceLanguage(TranslateLanguage.SPANISH)
+                        .setTargetLanguage(TranslateLanguage.GERMAN)
+                        .build();
+        translatorEsDe = Translation.getClient(translatorOptionsEsDe);
+
+        translatorEsDe.downloadModelIfNeeded(downloadConditions)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        boolEsDe = true;
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        boolEsDe = false;
+                    }
+                });
     }
 
-    private void translateText(String langCode, String text) {
+    private void translateText(String translatorType, String text) {
 
-        if (langCode.equals("el")){
-            if (boolEl){
-                translatorEl.translate(text)
+        if (translatorType.equals("en-el")){
+            if (boolEnEl){
+                translatorEnEl.translate(text)
                         .addOnSuccessListener(new OnSuccessListener<String>() {
                             @Override
                             public void onSuccess(String s) {
@@ -259,9 +597,9 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                             }
                         });
             }
-        } else if (langCode.equals("de")){
-            if (boolDe){
-                translatorDe.translate(text)
+        } else if (translatorType.equals("en-de")){
+            if (boolEnDe){
+                translatorEnDe.translate(text)
                         .addOnSuccessListener(new OnSuccessListener<String>() {
                             @Override
                             public void onSuccess(String s) {
@@ -275,9 +613,153 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                             }
                         });
             }
-        } else if (langCode.equals("es")){
-            if (boolEs){
-                translatorEs.translate(text)
+        } else if (translatorType.equals("en-es")){
+            if (boolEnEs){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("de-en")){
+            if (boolDeEn){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("de-el")){
+            if (boolDeEl){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("de-es")){
+            if (boolDeEs){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("el-en")){
+            if (boolElEn){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("el-de")){
+            if (boolElDe){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("el-es")){
+            if (boolElEs){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("es-en")){
+            if (boolEsEn){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("es-el")){
+            if (boolEsEl){
+                translatorEnEs.translate(text)
+                        .addOnSuccessListener(new OnSuccessListener<String>() {
+                            @Override
+                            public void onSuccess(String s) {
+                                txtTranslateResult.setText(s);
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                txtTranslateResult.setText(e.toString());
+                            }
+                        });
+            }
+        } else if (translatorType.equals("es-de")){
+            if (boolEsDe){
+                translatorEnEs.translate(text)
                         .addOnSuccessListener(new OnSuccessListener<String>() {
                             @Override
                             public void onSuccess(String s) {
