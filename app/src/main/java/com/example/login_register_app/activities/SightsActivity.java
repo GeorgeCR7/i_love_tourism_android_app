@@ -2,7 +2,6 @@ package com.example.login_register_app.activities;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -29,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SightsActivity extends AppCompatActivity implements LocationListener {
 
@@ -48,7 +48,7 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
     // Latitude & longitude of my current location.
     private double myLat, myLong;
     // Location manager object.
-    LocationManager locationManager;
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +80,7 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
 
             ActivityCompat.requestPermissions(SightsActivity.this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 100);
-
         }
-
-        //Get my current location via GPS.
-        // TODO: This function is not working, find another solution.
-        getMyLocation();
 
         switchBtnMap.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -155,21 +150,7 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         btnFind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                reference = rootNode.getReference().child("Sights");
-
-                reference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                            Sight sight = dataSnapshot.getValue(Sight.class);
-                            sights.add(sight);
-                        }
-                        findNearestSight(sights);
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {}
-                });
+                getMyLocation();
             }
         });
 
@@ -222,66 +203,98 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
         });
     }
 
-    private void findNearestSight(ArrayList<Sight> sights) {
 
-        // List with all the distances from my location to sights.
-        ArrayList<Float> distances = new ArrayList<>();
-
-        // Create my location object.
-        Location myLocation = new Location("My Location");
-        myLocation.setLatitude(myLat);
-        myLocation.setLongitude(myLong);
-
-        /*Toast.makeText(SightsActivity.this,
-                "Latitude: " + myLat + " | Longitude: " + myLong,
-                Toast.LENGTH_SHORT).show();*/
-
-        // Compute & save to the proper list all the distances from my location to all sights.
-        for (Sight sight : sights){
-
-            Location otherLocation = new Location(sight.getName());
-            otherLocation.setLatitude(sight.getLatitude());
-            otherLocation.setLongitude(sight.getLongitude());
-            float distance = myLocation.distanceTo(otherLocation);
-            distances.add(distance);
-        }
-
-        // Find & save the position of the min distance from the list.
-        double minDistance = distances.get(0);
-        int minPosCenter = 0;
-
-        for (int i = 1 ; i < distances.size(); i++){
-            if (distances.get(i) < minDistance){
-                minDistance = distances.get(i);
-                minPosCenter = i;
-            }
-        }
-
-        if (txtNearestSightLabel.getVisibility() == View.INVISIBLE) {
-            txtNearestSightLabel.setVisibility(View.VISIBLE);
-            txtNearestSightResult.setText(sights.get(minPosCenter).getName());
-        } else {
-            txtNearestSightLabel.setVisibility(View.VISIBLE);
-        }
-    }
 
     @SuppressLint("MissingPermission")
     private void getMyLocation(){
 
-        try {
-            locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-        }catch (Exception e){
+        try{
+            locationManager = (LocationManager) getApplicationContext().getSystemService(LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, SightsActivity.this);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     @Override
     public void onLocationChanged(@NonNull Location location) {
+        findNearestSight(location.getLatitude(), location.getLongitude());
+    }
 
-        // Get the latitude & longitude of my current location, store the values in proper global variables.
-        myLat = location.getLatitude();
-        myLong = location.getLongitude();
+    private void findNearestSight(double myLat, double myLong) {
 
+        // List with all the distances from my location to sights.
+        ArrayList<Float> distances = new ArrayList<>();
+
+        // Create my location object.
+        Location myLocation = new Location("my_location");
+        myLocation.setLatitude(myLat);
+        myLocation.setLongitude(myLong);
+
+        reference = rootNode.getReference().child("Sights");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Sight sight = dataSnapshot.getValue(Sight.class);
+                    sights.add(sight);
+                }
+                // Compute & save to the proper list all the distances from my location to all sights.
+                for (Sight sight : sights){
+
+                    Location otherLocation = new Location(sight.getName());
+                    otherLocation.setLatitude(sight.getLatitude());
+                    otherLocation.setLongitude(sight.getLongitude());
+                    float distance = myLocation.distanceTo(otherLocation);
+                    distances.add(distance);
+                }
+
+                // Find & save the position of the min distance from the list.
+                double minDistance = distances.get(0);
+                int minPosCenter = 0;
+
+                for (int i = 1 ; i < distances.size(); i++){
+                    if (distances.get(i) < minDistance){
+                        minDistance = distances.get(i);
+                        minPosCenter = i;
+                    }
+                }
+
+                if (txtNearestSightLabel.getVisibility() == View.INVISIBLE) {
+                    txtNearestSightLabel.setVisibility(View.VISIBLE);
+                    txtNearestSightResult.setText(sights.get(minPosCenter).getName());
+                } else {
+                    txtNearestSightLabel.setVisibility(View.VISIBLE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull List<Location> locations) {
+        LocationListener.super.onLocationChanged(locations);
+    }
+
+    @Override
+    public void onFlushComplete(int requestCode) {
+        LocationListener.super.onFlushComplete(requestCode);
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        LocationListener.super.onStatusChanged(provider, status, extras);
+    }
+
+    @Override
+    public void onProviderEnabled(@NonNull String provider) {
+        LocationListener.super.onProviderEnabled(provider);
+    }
+
+    @Override
+    public void onProviderDisabled(@NonNull String provider) {
+        LocationListener.super.onProviderDisabled(provider);
     }
 }
