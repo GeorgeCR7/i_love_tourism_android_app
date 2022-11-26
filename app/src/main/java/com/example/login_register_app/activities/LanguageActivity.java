@@ -25,7 +25,6 @@ public class LanguageActivity extends AppCompatActivity {
     TextView langText;
 
     Button btnOK;
-    //RadioButton choosenLang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,6 @@ public class LanguageActivity extends AppCompatActivity {
         btnOK = findViewById(R.id.btnOK);
 
         // Set listener to radio group of languages.
-        // TODO: Add French language and more...
         langGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

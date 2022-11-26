@@ -242,7 +242,6 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
                 }
                 // Compute & save to the proper list all the distances from my location to all sights.
                 for (Sight sight : sights){
-
                     Location otherLocation = new Location(sight.getName());
                     otherLocation.setLatitude(sight.getLatitude());
                     otherLocation.setLongitude(sight.getLongitude());
