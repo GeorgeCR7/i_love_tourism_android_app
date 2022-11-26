@@ -81,6 +81,7 @@
     <!-- One Sight Activity. -->
     <string name="sight_name">Nombre de la vista</string>
     <string name="city">Ciudad/Región</string>
+    <string name="loading">Cargando...</string>
 
     <!-- Language Activity. -->
     <string name="select_your_language">¡Elige tu idioma!</string>

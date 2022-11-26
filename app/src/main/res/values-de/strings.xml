@@ -81,6 +81,7 @@
     <!-- One Sight Activity. -->
     <string name="sight_name">Sehenswürdigkeitsname</string>
     <string name="city">Stadt/Region</string>
+    <string name="loading">Wird geladen...</string>
 
     <!-- Language Activity. -->
     <string name="select_your_language">Wähle deine Sprache!</string>

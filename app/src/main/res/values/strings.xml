@@ -82,6 +82,7 @@
     <string name="check_inbox_recover">Please check your inbox for password reset link.</string>
     <string name="warning">Warning!</string>
     <string name="check_your_spam_folder">Check your spam folder!</string>
+    <string name="loading">Loading...</string>
 
 
     <string-array name="langs_noEn">
