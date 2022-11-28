@@ -99,27 +99,27 @@
     <string name="lang_no_support">Die Sprache wird von der Anwendung nicht unterstützt</string>
     <string-array name="langs_noEn">
         <item></item>
-        <item>Greek</item>
-        <item>German</item>
-        <item>Spanish</item>
+        <item>Griechisch</item>
+        <item>Deutsch</item>
+        <item>Spanisch</item>
     </string-array>
     <string-array name="langs_noEl">
         <item></item>
-        <item>English</item>
-        <item>German</item>
-        <item>Spanish</item>
+        <item>Englisch</item>
+        <item>Deutsch</item>
+        <item>Spanisch</item>
     </string-array>
     <string-array name="langs_noDe">
         <item></item>
-        <item>Greek</item>
-        <item>English</item>
-        <item>Spanish</item>
+        <item>Griechisch</item>
+        <item>Englisch</item>
+        <item>Spanisch</item>
     </string-array>
     <string-array name="langs_noEs">
         <item></item>
-        <item>Greek</item>
-        <item>English</item>
-        <item>German</item>
+        <item>Griechisch</item>
+        <item>Englisch</item>
+        <item>Deutsch</item>
     </string-array>
     <string-array name="langs_no">
         <item></item>
