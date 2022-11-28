@@ -190,6 +190,28 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
                 Sight s18 = new Sight("Archaio Theatro Asklipieiou Epidavrou", "Peloponnisos",37.60077618554391, 23.07831424676064,R.drawable.theatro_epidauros);
                 Sight s19 = new Sight("Costa Navarino", "Kalamata",36.99661050323303, 21.650677981477152,R.drawable.costa_navarino);
                 Sight s20 = new Sight("Acrocorinth", "Korinthos",37.891177720167995, 22.87006218460847, R.drawable.acrocorinth);
+                Sight s21 = new Sight("Lefkos Pyrgos", "Thessaloniki",40.626446, 22.948426, R.drawable.lefkos_pyrgos);
+                Sight s22 = new Sight("Apsida toy Galerioy", "Thessaloniki",40.632362095974884, 22.95174036932001, R.drawable.apsida_galerioy);
+                Sight s23 = new Sight("Mouseio Atatourk", "Thessaloniki",40.63585852176295, 22.954302182812555, R.drawable.ataturk);
+                Sight s24 = new Sight("Rotonta", "Thessaloniki",40.63344853575982, 22.95300100185786, R.drawable.rotonta);
+                Sight s25 = new Sight("Eptapyrgio", "Thessaloniki",40.64433131405023, 22.96204558161576, R.drawable.eptapyrgio);
+                Sight s26 = new Sight("Iera Moni Vlatadwn", "Thessaloniki",40.641941317115915, 22.954555471171194, R.drawable.moni_vlatadwn);
+
+                Sight s27 = new Sight("Moni Latomoy", "Thessaloniki",40.641697158680834, 22.952367274960277, R.drawable.moni_latomoy);
+                Sight s28 = new Sight("Ieros Naos Panagias Axeiropoihtoy", "Thessaloniki",40.635032133626794, 22.947903728142247, R.drawable.panagia_acheiropoiitos);
+                Sight s29 = new Sight("Ieros Naos Agias Sofias", "Thessaloniki",40.63303148922419, 22.94743572460531, R.drawable.ieros_agia_sofia);
+                Sight s30 = new Sight("Oi Ompreles tis Zoggolopoulou", "Thessaloniki",40.62194435473573, 22.95143171603668, R.drawable.ompreles_ziggolopoulou);
+                Sight s31 = new Sight("Katarraktes Nedas", "Figaleia",37.40486968715838, 21.82249705198038, R.drawable.katarraktes_nedas);
+                Sight s32 = new Sight("Achaia Klaous", "Patras",38.19716392976844, 21.77025535523934, R.drawable.achaia_klaous);
+                Sight s33 = new Sight("Mouseio Archmidi", "Arxaia Olympia",37.64320388012092, 21.625200549500445, R.drawable.mouseio_arximidi);
+                Sight s34 = new Sight("Arxaiologiko Mouseio Patrwn", "Patras",38.26368377816827, 21.752481029893918, R.drawable.arxaiologiko_mouseio_patrwn);
+                Sight s35 = new Sight("Rwmaiko Wdeio Patrwn", "Patras",38.24338619528834, 21.739258093331316, R.drawable.rwmaiko_wdeio_patras);
+                Sight s36 = new Sight("Sphlaio twn Limnwn", "Peloponnisos",37.9625488795335, 22.142653043856328, R.drawable.spilaio_ton_limnon);
+                Sight s37 = new Sight("Pyges Kryas", "Leivadia",38.431923952634264, 22.874995162651032, R.drawable.pyges_kryas);
+                Sight s38 = new Sight("Mouseio Delfwn", "Delfoi",38.480330549053335, 22.499901594388625, R.drawable.mouseio_delfoi);
+                Sight s39 = new Sight("Karampampa Castle", "Ksirovrysi",38.464982976819265, 23.58531583406306, R.drawable.karababa_castle);
+                Sight s40 = new Sight("Temple of Athena Pronaia", "Delfoi",38.480185031158435, 22.507896360738098, R.drawable.temple_athena_pronaia);
+
 
                 sights.add(s1); sights.add(s2); sights.add(s3);
                 sights.add(s4); sights.add(s5); sights.add(s6);
@@ -197,7 +219,14 @@ public class SightsActivity extends AppCompatActivity implements LocationListene
                 sights.add(s10); sights.add(s11); sights.add(s12);
                 sights.add(s13); sights.add(s14); sights.add(s15);
                 sights.add(s16); sights.add(s17); sights.add(s18);
-                sights.add(s19); sights.add(s20);
+                sights.add(s19); sights.add(s20); sights.add(s21);
+                sights.add(s22); sights.add(s23); sights.add(s24);
+                sights.add(s25); sights.add(s26); sights.add(s27);
+                sights.add(s28); sights.add(s29); sights.add(s30);
+                sights.add(s31); sights.add(s32); sights.add(s33);
+                sights.add(s34);  sights.add(s35); sights.add(s36);
+                sights.add(s37); sights.add(s38); sights.add(s39);
+                sights.add(s40);
 
                 // Step 3.3. Store all the list data (param in setValue) inside firebase.
                 for (Sight s : sights) {
