@@ -49,12 +49,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
     private Translator translatorEsEn, translatorEsEl, translatorEsDe;
     private Boolean boolEsEn = false, boolEsEl = false, boolEsDe = false;
 
-
-
-
-    //private Translator translatorEn, translatorEl, translatorDe, translatorEs;
-    //private Boolean boolEn = false, boolEl = false, boolDe = false, boolEs = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,74 +84,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
 
         createTranslators();
 
-        /*TranslatorOptions translatorOptionsEl =
-                new TranslatorOptions.Builder()
-                        .setSourceLanguage(TranslateLanguage.ENGLISH)
-                        .setTargetLanguage(TranslateLanguage.GREEK)
-                        .build();
-        translatorEl = Translation.getClient(translatorOptionsEl);
-
-        TranslatorOptions translatorOptionsDe =
-                new TranslatorOptions.Builder()
-                        .setSourceLanguage(TranslateLanguage.ENGLISH)
-                        .setTargetLanguage(TranslateLanguage.GERMAN)
-                        .build();
-        translatorDe = Translation.getClient(translatorOptionsDe);
-
-        TranslatorOptions translatorOptionsEs =
-                new TranslatorOptions.Builder()
-                        .setSourceLanguage(TranslateLanguage.ENGLISH)
-                        .setTargetLanguage(TranslateLanguage.SPANISH)
-                        .build();
-        translatorEs = Translation.getClient(translatorOptionsEs);
-
-        DownloadConditions downloadConditions = new DownloadConditions.Builder()
-                .requireWifi()
-                .build();
-
-        translatorEl.downloadModelIfNeeded(downloadConditions)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        boolEl = true;
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        boolEl = false;
-                    }
-                });
-
-        translatorDe.downloadModelIfNeeded(downloadConditions)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        boolDe = true;
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        boolDe = false;
-                    }
-                });
-
-        translatorEs.downloadModelIfNeeded(downloadConditions)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        boolEs = true;
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        boolEs = false;
-                    }
-                });
-*/
-
         btnBackTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,16 +105,9 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         // Get the selected language from the spinner.
         String selectedLang = adapterView.getItemAtPosition(position).toString();
         Bundle extras = getIntent().getExtras();
-
-       /* String[] allLanguages =
-                { getResources().getString(R.string.english),
-                getResources().getString(R.string.greek),
-                getResources().getString(R.string.german),
-                getResources().getString(R.string.spanish) };*/
         
         if (!selectedLang.equals("")) {
             if (extras != null) {
-                //createTranslator(myList.get(1), myList.get(2), selectedLang);
                 if (myList.get(2).contains("en") && selectedLang.equals(getResources().getString(R.string.greek))) {
                     txtTranslateResultLabel.setVisibility(View.VISIBLE);
                     txtTranslateResult.setVisibility(View.VISIBLE);
@@ -243,45 +162,6 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
                 }
             }
         }
-        /*if (!selectedLang.equals("")){
-            if (extras!= null){
-                if (myList.get(0).equals("img_label_list")){
-                    if (selectedLang.equals(allLanguages[1])){
-                        // translate text to greek...
-                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
-                        txtTranslateResult.setVisibility(View.VISIBLE);
-                        translateText("el", myList.get(1));
-                    } else if (selectedLang.equals(allLanguages[2])){
-                        // translate text to german...
-                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
-                        txtTranslateResult.setVisibility(View.VISIBLE);
-                        translateText("de", myList.get(1));
-                    } else {
-                        // translate text to spanish...
-                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
-                        txtTranslateResult.setVisibility(View.VISIBLE);
-                        translateText("es", myList.get(1));
-                    }
-                } else {
-                    if (selectedLang.equals(allLanguages[1])){
-                        // translate text to greek...
-                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
-                        txtTranslateResult.setVisibility(View.VISIBLE);
-                        translateText("el", myList.get(1));
-                    } else if (selectedLang.equals(allLanguages[2])){
-                        // translate text to german...
-                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
-                        txtTranslateResult.setVisibility(View.VISIBLE);
-                        translateText("de", myList.get(1));
-                    } else {
-                        // translate text to spanish...
-                        txtTranslateResultLabel.setVisibility(View.VISIBLE);
-                        txtTranslateResult.setVisibility(View.VISIBLE);
-                        translateText("es", myList.get(1));
-                    }
-                }
-            }
-        }*/
     }
 
     @Override
@@ -795,34 +675,5 @@ public class TranslateActivity extends AppCompatActivity implements AdapterView.
         }
 
         return langLabel;
-
     }
-
-    /*private void identifyLanguage(String text) {
-
-        LanguageIdentifier languageIdentifier = LanguageIdentification.getClient();
-        languageIdentifier.identifyLanguage(text)
-                .addOnSuccessListener(new OnSuccessListener<String>() {
-                    @Override
-                    public void onSuccess(String languageCode) {
-                        if (languageCode.equals("und")) {
-                            Toast.makeText(TranslateActivity.this,
-                                    "Can't identify language.",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(TranslateActivity.this,
-                                    "Language: " + languageCode,
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(TranslateActivity.this,
-                                e.getMessage(),
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }*/
 }

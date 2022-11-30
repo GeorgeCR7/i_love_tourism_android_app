@@ -21,18 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Properties;
 import java.util.regex.Pattern;
-
-import javax.mail.Authenticator;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -132,8 +121,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this,
                                     R.string.success_register,
                                     Toast.LENGTH_SHORT).show();
-                            // Send verification email to the new user.
-                            sendEmailVerification(strEmail);
                             // Create a new User object, at first, only with email.
                             User user = new User(strEmail, "", "", setDateCreated(), "");
                             // Store the new User to the Firebase.
@@ -186,51 +173,5 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         return day + month + cal.get(Calendar.YEAR);
-    }
-
-    // TODO: This function is not working, find another solution.
-    private void sendEmailVerification (String receiverEmail) {
-
-        try {
-            String senderEmail = "xcr471x@gmail.com";
-            String senderEmailPass = "Test*123";
-            String host = "smtp.gmail.com";
-
-            Properties properties = System.getProperties();
-            properties.put("mail.smtp.host", host);
-            properties.put("mail.smtp.port", "465");
-            properties.put("mail.smtp.ssl.enable", "true");
-            properties.put("mail.smtp.auth", "true");
-
-            Session session = Session.getInstance(properties, new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication(senderEmail, senderEmailPass);
-                }
-            });
-
-            MimeMessage mimeMessage = new MimeMessage(session);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(receiverEmail));
-            mimeMessage.setSubject("I LOVE TOURISM Application!");
-            mimeMessage.setText("Hi! This is just an email from my app!");
-
-            Thread thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        Transport.send(mimeMessage);
-                    } catch (MessagingException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-
-            thread.start();
-
-        } catch (AddressException e) {
-            e.printStackTrace();
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
     }
 }

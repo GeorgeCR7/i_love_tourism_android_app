@@ -43,7 +43,6 @@ public class LanguageActivity extends AppCompatActivity {
         langGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                // Check condition.
                 switch (i) {
                     case R.id.langEng:
                         String language = "en";
@@ -65,7 +64,7 @@ public class LanguageActivity extends AppCompatActivity {
         btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = null;
+                Intent intent;
                 if (getIntent().getExtras().getString("LANG_ACTV").equals("login")) {
                     intent = new Intent(LanguageActivity.this, LoginActivity.class);
                 } else {
