@@ -19,7 +19,7 @@ public class AboutWindow extends AppCompatDialogFragment {
         builder.setTitle("Master Thesis - I LOVE TOURISM Android App.")
                 .setMessage("University of Piraeus." +
                         "\nApp created & developed by George Asimakopoulos." +
-                        "\n\n© Copyright 2022.")
+                        "\n\n© Copyright 2023.")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
