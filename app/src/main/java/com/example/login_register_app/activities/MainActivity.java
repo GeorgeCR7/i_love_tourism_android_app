@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if((cal.get(Calendar.MONTH)+1) < 10) {
-            month = ".0" + (cal.get(Calendar.MONTH)+1)+".";
+            month = "0" + (cal.get(Calendar.MONTH)+1)+".";
         } else {
             month = ""+(cal.get(Calendar.MONTH)+1)+".";
         }
